@@ -12,6 +12,10 @@ import Home from "@/pages/home";
 import Testimonies from "@/pages/testimonies";
 import Prayers from "@/pages/prayers";
 import Donate from "@/pages/donate";
+import Worship from "@/pages/worship";
+import Reading from "@/pages/reading";
+import Meditation from "@/pages/meditation";
+import Games from "@/pages/games";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -35,6 +39,10 @@ function Router() {
           <Route path="/testimonies" component={Landing} />
           <Route path="/prayers" component={Landing} />
           <Route path="/donate" component={Landing} />
+          <Route path="/worship" component={Worship} />
+          <Route path="/reading" component={Reading} />
+          <Route path="/meditation" component={Meditation} />
+          <Route path="/games" component={Games} />
         </>
       ) : (
         <>
@@ -42,6 +50,10 @@ function Router() {
           <Route path="/testimonies" component={Testimonies} />
           <Route path="/prayers" component={Prayers} />
           <Route path="/donate" component={Donate} />
+          <Route path="/worship" component={Worship} />
+          <Route path="/reading" component={Reading} />
+          <Route path="/meditation" component={Meditation} />
+          <Route path="/games" component={Games} />
         </>
       )}
       <Route component={NotFound} />

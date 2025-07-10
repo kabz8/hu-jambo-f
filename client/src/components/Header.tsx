@@ -1,7 +1,10 @@
 import { useTheme } from "./ThemeProvider";
 import { useLanguage } from "./LanguageProvider";
-import { Cross, Sun, Moon } from "lucide-react";
+import { Cross, Sun, Moon, Menu } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Link } from "wouter";
 
 export default function Header() {
   const { theme, toggleTheme } = useTheme();
@@ -14,22 +17,76 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
-              <Cross className="h-8 w-8 text-blue-800 dark:text-yellow-500 mr-2" />
-              <span className="text-xl font-bold text-gray-900 dark:text-white">
-                {t("site.title")}
-              </span>
+              <Link href="/" className="flex items-center">
+                <Cross className="h-8 w-8 text-blue-800 dark:text-yellow-500 mr-2" />
+                <span className="text-xl font-bold text-gray-900 dark:text-white">
+                  {t("site.title")}
+                </span>
+              </Link>
             </div>
           </div>
 
-          {/* Website Banner */}
-          <div className="hidden md:block">
-            <h1 className="text-lg font-semibold text-gray-900 dark:text-white text-center">
-              {t("site.tagline")}
-            </h1>
-          </div>
+          {/* Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            <Link href="/worship" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Worship
+            </Link>
+            <Link href="/reading" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Reading
+            </Link>
+            <Link href="/meditation" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Meditation
+            </Link>
+            <Link href="/games" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Games
+            </Link>
+            <Link href="/testimonies" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Testimonies
+            </Link>
+            <Link href="/prayers" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Prayers
+            </Link>
+            <Link href="/donate" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+              Donate
+            </Link>
+          </nav>
 
           {/* Right Side Controls */}
           <div className="flex items-center space-x-4">
+            {/* Mobile Menu */}
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-6 w-6" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-64">
+                <nav className="flex flex-col space-y-4 mt-8">
+                  <Link href="/worship" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2">
+                    Worship
+                  </Link>
+                  <Link href="/reading" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2">
+                    Reading
+                  </Link>
+                  <Link href="/meditation" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2">
+                    Meditation
+                  </Link>
+                  <Link href="/games" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2">
+                    Games
+                  </Link>
+                  <Link href="/testimonies" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2">
+                    Testimonies
+                  </Link>
+                  <Link href="/prayers" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2">
+                    Prayers
+                  </Link>
+                  <Link href="/donate" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2">
+                    Donate
+                  </Link>
+                </nav>
+              </SheetContent>
+            </Sheet>
+
             {/* Language Dropdown */}
             <Select value={language} onValueChange={(value) => setLanguage(value as any)}>
               <SelectTrigger className="w-32">

@@ -8,6 +8,13 @@ This is a full-stack web application for a faith-based community platform that e
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes
+
+- **December 2024**: Updated typography to use Crimson Text font for headings and Inter for body text to better suit the faith community aesthetic
+- **December 2024**: Created dedicated pages for Worship, Reading, Meditation, and Games with rich content and features
+- **December 2024**: Added navigation header with desktop and mobile responsive design for easy access to all sections
+- **December 2024**: Updated landing page buttons to link to dedicated pages instead of combining all content on one page
+
 ## System Architecture
 
 ### Frontend Architecture

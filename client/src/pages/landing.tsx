@@ -77,8 +77,8 @@ export default function Landing() {
                 />
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Personal Testimony</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Share your personal faith journey and experiences</p>
-                <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white">
-                  Share Your Story
+                <Button asChild className="w-full bg-blue-800 hover:bg-blue-900 text-white">
+                  <Link href="/testimonies">Share Your Story</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -93,8 +93,8 @@ export default function Landing() {
                 />
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Group Testimony</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Community testimonies that inspire and uplift</p>
-                <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white">
-                  View Stories
+                <Button asChild className="w-full bg-blue-800 hover:bg-blue-900 text-white">
+                  <Link href="/testimonies">View Stories</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -109,8 +109,8 @@ export default function Landing() {
                 />
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Family Testimony</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Families sharing their faith journey together</p>
-                <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white">
-                  Family Stories
+                <Button asChild className="w-full bg-blue-800 hover:bg-blue-900 text-white">
+                  <Link href="/testimonies">Family Stories</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -125,8 +125,8 @@ export default function Landing() {
                 />
                 <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Marriage Testimony</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Couples sharing their faith-centered marriage stories</p>
-                <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white">
-                  Marriage Stories
+                <Button asChild className="w-full bg-blue-800 hover:bg-blue-900 text-white">
+                  <Link href="/testimonies">Marriage Stories</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -157,8 +157,8 @@ export default function Landing() {
                   <div className="text-3xl mb-4">{category.icon}</div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{category.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{category.desc}</p>
-                  <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white text-sm">
-                    Request Prayer
+                  <Button asChild className="w-full bg-purple-600 hover:bg-purple-700 text-white text-sm">
+                    <Link href="/prayers">Request Prayer</Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -187,8 +187,8 @@ export default function Landing() {
                 />
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Hymn Songs</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Traditional hymns that have blessed generations</p>
-                <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold">
-                  Browse Hymns
+                <Button asChild className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold">
+                  <Link href="/worship">Browse Hymns</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -203,8 +203,8 @@ export default function Landing() {
                 />
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Praise & Worship</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Contemporary worship songs for spiritual connection</p>
-                <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold">
-                  Listen Now
+                <Button asChild className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold">
+                  <Link href="/worship">Listen Now</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -219,8 +219,8 @@ export default function Landing() {
                 />
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Instruments</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Instrumental worship music and lessons</p>
-                <Button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold">
-                  Explore Music
+                <Button asChild className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold">
+                  <Link href="/worship">Explore Music</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -249,9 +249,11 @@ export default function Landing() {
                   <div className="text-4xl mb-4">{category.icon}</div>
                   <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">{category.title}</h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">{category.desc}</p>
-                  <Button className="w-full bg-blue-800 hover:bg-blue-900 text-white font-semibold">
-                    {category.title === "Scriptures" ? "Read Scripture" : 
-                     category.title === "Verse of the Day" ? "Today's Verse" : "Start Plan"}
+                  <Button asChild className="w-full bg-blue-800 hover:bg-blue-900 text-white font-semibold">
+                    <Link href="/reading">
+                      {category.title === "Scriptures" ? "Read Scripture" : 
+                       category.title === "Verse of the Day" ? "Today's Verse" : "Start Plan"}
+                    </Link>
                   </Button>
                 </CardContent>
               </Card>
@@ -279,8 +281,8 @@ export default function Landing() {
                 <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
                   <p className="text-gray-700 dark:text-gray-300 italic">"Be still, and know that I am God" - Psalm 46:10</p>
                 </div>
-                <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold">
-                  More Quotes
+                <Button asChild className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold">
+                  <Link href="/meditation">More Quotes</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -295,8 +297,8 @@ export default function Landing() {
                 />
                 <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Nature Meditation</h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">Connect with God through His beautiful creation</p>
-                <Button className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold">
-                  Explore Nature
+                <Button asChild className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold">
+                  <Link href="/meditation">Explore Nature</Link>
                 </Button>
               </CardContent>
             </Card>
@@ -330,8 +332,8 @@ export default function Landing() {
               </div>
               <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Good for Christian Kids</h3>
               <p className="text-gray-600 dark:text-gray-300 mb-6">Educational and fun games that teach Bible stories and values</p>
-              <Button className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 font-semibold">
-                Play Games
+              <Button asChild className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 font-semibold">
+                <Link href="/games">Play Games</Link>
               </Button>
             </CardContent>
           </Card>
