@@ -16,6 +16,12 @@ import Worship from "@/pages/worship";
 import Reading from "@/pages/reading";
 import Meditation from "@/pages/meditation";
 import Games from "@/pages/games";
+import TestimonyAlong from "@/pages/testimony-along";
+import PrayAlong from "@/pages/pray-along";
+import SingAlong from "@/pages/sing-along";
+import ReadAlong from "@/pages/read-along";
+import MeditateAlong from "@/pages/meditate-along";
+import GameAlong from "@/pages/game-along";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -43,6 +49,12 @@ function Router() {
           <Route path="/reading" component={Reading} />
           <Route path="/meditation" component={Meditation} />
           <Route path="/games" component={Games} />
+          <Route path="/testimony-along" component={TestimonyAlong} />
+          <Route path="/pray-along" component={PrayAlong} />
+          <Route path="/sing-along" component={SingAlong} />
+          <Route path="/read-along" component={ReadAlong} />
+          <Route path="/meditate-along" component={MeditateAlong} />
+          <Route path="/game-along" component={GameAlong} />
         </>
       ) : (
         <>
@@ -54,6 +66,12 @@ function Router() {
           <Route path="/reading" component={Reading} />
           <Route path="/meditation" component={Meditation} />
           <Route path="/games" component={Games} />
+          <Route path="/testimony-along" component={TestimonyAlong} />
+          <Route path="/pray-along" component={PrayAlong} />
+          <Route path="/sing-along" component={SingAlong} />
+          <Route path="/read-along" component={ReadAlong} />
+          <Route path="/meditate-along" component={MeditateAlong} />
+          <Route path="/game-along" component={GameAlong} />
         </>
       )}
       <Route component={NotFound} />

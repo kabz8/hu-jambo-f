@@ -27,7 +27,7 @@ export default function Header() {
           </div>
 
           {/* Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-6">
             <Link href="/worship" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Worship
             </Link>
@@ -46,6 +46,31 @@ export default function Header() {
             <Link href="/prayers" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Prayers
             </Link>
+            <div className="relative group">
+              <span className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer">
+                Along ▼
+              </span>
+              <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <Link href="/testimony-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  Testimony Along
+                </Link>
+                <Link href="/pray-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  Pray Along
+                </Link>
+                <Link href="/sing-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  Sing Along
+                </Link>
+                <Link href="/read-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  Read Along
+                </Link>
+                <Link href="/meditate-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  Meditate Along
+                </Link>
+                <Link href="/game-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+                  Game Along
+                </Link>
+              </div>
+            </div>
             <Link href="/donate" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
               Donate
             </Link>
@@ -80,6 +105,29 @@ export default function Header() {
                   <Link href="/prayers" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2">
                     Prayers
                   </Link>
+                  
+                  <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
+                    <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Along Activities</p>
+                    <Link href="/testimony-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 pl-4">
+                      Testimony Along
+                    </Link>
+                    <Link href="/pray-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 pl-4">
+                      Pray Along
+                    </Link>
+                    <Link href="/sing-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 pl-4">
+                      Sing Along
+                    </Link>
+                    <Link href="/read-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 pl-4">
+                      Read Along
+                    </Link>
+                    <Link href="/meditate-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 pl-4">
+                      Meditate Along
+                    </Link>
+                    <Link href="/game-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 pl-4">
+                      Game Along
+                    </Link>
+                  </div>
+                  
                   <Link href="/donate" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2">
                     Donate
                   </Link>
