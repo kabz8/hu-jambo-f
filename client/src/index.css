@@ -226,4 +226,13 @@
   .dark ::-webkit-scrollbar-thumb:hover {
     background: hsl(221, 83%, 63%);
   }
+
+  /* Background patterns */
+  .bg-pattern {
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(0,0,0,0.05) 2px, rgba(0,0,0,0.05) 4px);
+  }
+
+  .bg-pattern-light {
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.1) 2px, rgba(255,255,255,0.1) 4px);
+  }
 }

@@ -1,392 +1,230 @@
 import { Link } from "wouter";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Music, Book, Leaf, Gamepad2 } from "lucide-react";
+import { ArrowRight, Users, Heart, Sparkles, Crown, Star } from "lucide-react";
 
 export default function Landing() {
   const { t } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-background">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-800 via-blue-600 to-purple-600 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          {/* Hero image */}
-          <div className="mb-8">
-            <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1200&h=600" 
-              alt="Faith community gathering in prayer" 
-              className="rounded-xl shadow-2xl mx-auto max-w-4xl w-full h-64 object-cover" 
-            />
-          </div>
-          
-          <h2 className="text-4xl md:text-6xl font-bold mb-6">
-            {t("hero.title")}
-          </h2>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
-            {t("hero.description")}
-          </p>
-          
-          {/* Join Community CTA */}
-          <div className="mb-8">
-            <h3 className="text-2xl font-bold italic mb-4">{t("cta.join")}</h3>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                asChild
-                className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105"
-              >
-                <a href="/api/login">{t("cta.register")}</a>
-              </Button>
-              <Button 
-                variant="outline"
-                className="bg-transparent border-2 border-white hover:bg-white hover:text-blue-800 px-8 py-3 rounded-lg font-semibold text-lg transition-all duration-300"
-              >
-                {t("cta.explore")}
-              </Button>
+      <section className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 overflow-hidden">
+        <div className="absolute inset-0 bg-pattern"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <div className="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-700 dark:text-blue-300 text-sm font-medium mb-6">
+                <Sparkles className="w-4 h-4 mr-2" />
+                Welcome to Faith Journey
+              </div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+                Grow Your Faith
+                <span className="block text-blue-600 dark:text-blue-400">Together</span>
+              </h1>
+              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
+                Join our vibrant community of believers for worship, prayer, Bible study, and fellowship that strengthens your spiritual journey.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                <Button 
+                  asChild
+                  size="lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg px-8 py-4 shadow-lg"
+                >
+                  <a href="/api/login">
+                    Join Community
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </a>
+                </Button>
+                <Button 
+                  variant="outline"
+                  size="lg"
+                  className="font-semibold text-lg px-8 py-4"
+                >
+                  Explore Activities
+                </Button>
+              </div>
+            </div>
+            <div className="relative">
+              <div className="aspect-square bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-3xl p-1 shadow-2xl">
+                <img 
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800" 
+                  alt="Faith community gathering" 
+                  className="w-full h-full object-cover rounded-3xl" 
+                />
+              </div>
+              <div className="absolute -top-4 -left-4 w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
+                <Crown className="w-12 h-12 text-yellow-900" />
+              </div>
+              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-pink-400 rounded-full flex items-center justify-center shadow-lg">
+                <Heart className="w-10 h-10 text-pink-900" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Main Content Sections */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
-        {/* Testimony Section */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              <Heart className="inline-block w-8 h-8 text-yellow-500 mr-2" />
-              {t("testimony.title")}
+      {/* Features Section */}
+      <section className="py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6">
+              Strengthen Your Faith Journey
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">{t("testimony.description")}</p>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              Discover meaningful ways to grow spiritually through worship, study, fellowship, and service
+            </p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Personal Testimony */}
-            <Card className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <CardContent className="p-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
-                  alt="Person sharing personal testimony" 
-                  className="w-full h-40 object-cover rounded-lg mb-4" 
-                />
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Personal Testimony</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">Share your personal faith journey and experiences</p>
-                <Button asChild className="w-full bg-blue-800 hover:bg-blue-900 text-white">
-                  <Link href="/testimonies">Share Your Story</Link>
-                </Button>
-              </CardContent>
-            </Card>
 
-            {/* Group Testimony */}
-            <Card className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <CardContent className="p-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
-                  alt="Group sharing testimony together" 
-                  className="w-full h-40 object-cover rounded-lg mb-4" 
-                />
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Group Testimony</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">Community testimonies that inspire and uplift</p>
-                <Button asChild className="w-full bg-blue-800 hover:bg-blue-900 text-white">
-                  <Link href="/testimonies">View Stories</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Family Testimony */}
-            <Card className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <CardContent className="p-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1609220136736-443140cffec6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
-                  alt="Christian family praying together" 
-                  className="w-full h-40 object-cover rounded-lg mb-4" 
-                />
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Family Testimony</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">Families sharing their faith journey together</p>
-                <Button asChild className="w-full bg-blue-800 hover:bg-blue-900 text-white">
-                  <Link href="/testimonies">Family Stories</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Marriage Testimony */}
-            <Card className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <CardContent className="p-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
-                  alt="Christian couple in marriage testimony" 
-                  className="w-full h-40 object-cover rounded-lg mb-4" 
-                />
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Marriage Testimony</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">Couples sharing their faith-centered marriage stories</p>
-                <Button asChild className="w-full bg-blue-800 hover:bg-blue-900 text-white">
-                  <Link href="/testimonies">Marriage Stories</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Prayer Section */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              <Heart className="inline-block w-8 h-8 text-yellow-500 mr-2" />
-              {t("prayer.title")}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">{t("prayer.description")}</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
-            {/* Prayer categories */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              { icon: "💍", title: "For Marriages", desc: "Strengthen marriages through prayer" },
-              { icon: "🏠", title: "For Families", desc: "Unity and blessing for families" },
-              { icon: "👤", title: "For Individuals", desc: "Personal prayer needs and growth" },
-              { icon: "🛡️", title: "Protection & Prosperity", desc: "Safety and blessing prayers" },
-              { icon: "🙏", title: "For Thanksgiving", desc: "Gratitude and praise prayers" }
-            ].map((category, index) => (
-              <Card key={index} className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <div className="text-3xl mb-4">{category.icon}</div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{category.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{category.desc}</p>
-                  <Button asChild className="w-full bg-purple-600 hover:bg-purple-700 text-white text-sm">
-                    <Link href="/prayers">Request Prayer</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Worship Section */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              <Music className="inline-block w-8 h-8 text-yellow-500 mr-2" />
-              {t("worship.title")}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">{t("worship.description")}</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Hymn Songs */}
-            <Card className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <CardContent className="p-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
-                  alt="People singing hymns in worship" 
-                  className="w-full h-48 object-cover rounded-lg mb-4" 
-                />
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Hymn Songs</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">Traditional hymns that have blessed generations</p>
-                <Button asChild className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold">
-                  <Link href="/worship">Browse Hymns</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Praise & Worship */}
-            <Card className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <CardContent className="p-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
-                  alt="Contemporary praise and worship" 
-                  className="w-full h-48 object-cover rounded-lg mb-4" 
-                />
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Praise & Worship</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">Contemporary worship songs for spiritual connection</p>
-                <Button asChild className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold">
-                  <Link href="/worship">Listen Now</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Instruments */}
-            <Card className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <CardContent className="p-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1460036521480-ff49c08c2781?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=250" 
-                  alt="Musical instruments for worship" 
-                  className="w-full h-48 object-cover rounded-lg mb-4" 
-                />
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Instruments</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">Instrumental worship music and lessons</p>
-                <Button asChild className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold">
-                  <Link href="/worship">Explore Music</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Reading Section */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              <Book className="inline-block w-8 h-8 text-yellow-500 mr-2" />
-              {t("reading.title")}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">{t("reading.description")}</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Reading categories */}
-            {[
-              { icon: "📖", title: "Scriptures", desc: "Explore Bible passages and their meanings" },
-              { icon: "💭", title: "Verse of the Day", desc: "Daily inspiration from God's Word" },
-              { icon: "📅", title: "Bible Plan", desc: "Structured reading plans for spiritual growth" }
-            ].map((category, index) => (
-              <Card key={index} className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-4">{category.icon}</div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">{category.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">{category.desc}</p>
-                  <Button asChild className="w-full bg-blue-800 hover:bg-blue-900 text-white font-semibold">
-                    <Link href="/reading">
-                      {category.title === "Scriptures" ? "Read Scripture" : 
-                       category.title === "Verse of the Day" ? "Today's Verse" : "Start Plan"}
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
-
-        {/* Meditation Section */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              <Leaf className="inline-block w-8 h-8 text-yellow-500 mr-2" />
-              {t("meditation.title")}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">{t("meditation.description")}</p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Quotes */}
-            <Card className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <CardContent className="p-6 text-center">
-                <div className="text-4xl mb-4">💭</div>
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Inspiring Quotes</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">Wisdom and inspiration for daily meditation</p>
-                <div className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg mb-4">
-                  <p className="text-gray-700 dark:text-gray-300 italic">"Be still, and know that I am God" - Psalm 46:10</p>
-                </div>
-                <Button asChild className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold">
-                  <Link href="/meditation">More Quotes</Link>
-                </Button>
-              </CardContent>
-            </Card>
-
-            {/* Nature */}
-            <Card className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-              <CardContent className="p-6">
-                <img 
-                  src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=200" 
-                  alt="Peaceful nature scene for meditation" 
-                  className="w-full h-32 object-cover rounded-lg mb-4" 
-                />
-                <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Nature Meditation</h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">Connect with God through His beautiful creation</p>
-                <Button asChild className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold">
-                  <Link href="/meditation">Explore Nature</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-        </section>
-
-        {/* Games Section */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              <Gamepad2 className="inline-block w-8 h-8 text-yellow-500 mr-2" />
-              {t("games.title")}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">{t("games.description")}</p>
-          </div>
-          
-          <Card className="card-hover transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-            <CardContent className="p-8 text-center">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-6">
-                {[
-                  { icon: "🧩", title: "Bible Puzzles" },
-                  { icon: "❓", title: "Scripture Quiz" },
-                  { icon: "🔍", title: "Word Search" },
-                  { icon: "🎨", title: "Bible Coloring" }
-                ].map((game, index) => (
-                  <div key={index} className="flex flex-col items-center">
-                    <div className="text-3xl mb-2">{game.icon}</div>
-                    <span className="text-sm text-gray-600 dark:text-gray-300">{game.title}</span>
-                  </div>
-                ))}
-              </div>
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-3">Good for Christian Kids</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">Educational and fun games that teach Bible stories and values</p>
-              <Button asChild className="bg-yellow-500 hover:bg-yellow-600 text-white px-8 py-3 font-semibold">
-                <Link href="/games">Play Games</Link>
-              </Button>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Contribution Section */}
-        <section className="mb-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              <Heart className="inline-block w-8 h-8 text-yellow-500 mr-2" />
-              {t("support.title")}
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300">{t("support.description")}</p>
-          </div>
-          
-          <Card>
-            <CardContent className="p-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Make a Difference</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    Your generous support helps us provide resources, maintain our platform, and reach more people with God's love. Every contribution makes a difference in building our faith community.
-                  </p>
-                  <div className="flex flex-wrap gap-4 mb-6">
-                    <Button 
-                      asChild
-                      className="bg-blue-600 hover:bg-blue-700 text-white font-semibold"
-                    >
-                      <Link href="/donate">💳 Donate Now</Link>
+              {
+                icon: "🎵",
+                title: "Worship Together",
+                description: "Join in uplifting worship with hymns, contemporary songs, and instrumental music",
+                link: "/worship",
+                color: "from-purple-500 to-pink-500"
+              },
+              {
+                icon: "📖",
+                title: "Study Scripture", 
+                description: "Dive deep into God's Word with reading plans, devotionals, and Bible study groups",
+                link: "/reading",
+                color: "from-blue-500 to-cyan-500"
+              },
+              {
+                icon: "🙏",
+                title: "Pray & Connect",
+                description: "Share prayer requests, join prayer circles, and support one another in faith",
+                link: "/prayers",
+                color: "from-green-500 to-emerald-500"
+              },
+              {
+                icon: "🧘",
+                title: "Meditate & Reflect",
+                description: "Find peace through guided meditation, reflection, and spiritual contemplation",
+                link: "/meditation",
+                color: "from-indigo-500 to-purple-500"
+              },
+              {
+                icon: "💝",
+                title: "Share Testimonies",
+                description: "Inspire others by sharing your faith journey and celebrating God's goodness",
+                link: "/testimonies",
+                color: "from-pink-500 to-rose-500"
+              },
+              {
+                icon: "🎮",
+                title: "Learn Through Play",
+                description: "Enjoy educational games that teach Bible stories and strengthen understanding",
+                link: "/games",
+                color: "from-orange-500 to-yellow-500"
+              }
+            ].map((feature, index) => (
+              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden">
+                <CardContent className="p-0">
+                  <div className={`h-2 bg-gradient-to-r ${feature.color}`}></div>
+                  <div className="p-8">
+                    <div className="text-4xl mb-4">{feature.icon}</div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 transition-colors">
+                      {feature.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                      {feature.description}
+                    </p>
+                    <Button asChild variant="outline" className="group-hover:bg-blue-50 group-hover:border-blue-200 transition-colors">
+                      <Link href={feature.link}>
+                        Explore
+                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                      </Link>
                     </Button>
                   </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Community Stats */}
+      <section className="py-20 bg-blue-50 dark:bg-gray-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+              Growing Together in Faith
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Join thousands of believers in their spiritual journey
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { number: "10,000+", label: "Community Members", icon: <Users className="w-8 h-8" /> },
+              { number: "50,000+", label: "Prayers Shared", icon: <Heart className="w-8 h-8" /> },
+              { number: "5,000+", label: "Testimonies", icon: <Star className="w-8 h-8" /> },
+              { number: "100+", label: "Countries", icon: <Sparkles className="w-8 h-8" /> }
+            ].map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full text-blue-600 dark:text-blue-400 mb-4">
+                  {stat.icon}
                 </div>
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">Participant Gifts</h3>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    Active community members receive special gifts and rewards:
-                  </p>
-                  <ul className="text-gray-600 dark:text-gray-300 space-y-2">
-                    <li>🎁 Monthly prayer cards</li>
-                    <li>📖 Devotional booklets</li>
-                    <li>🎵 Worship music collections</li>
-                    <li>🏆 Completion certificates</li>
-                  </ul>
+                <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+                  {stat.number}
+                </div>
+                <div className="text-gray-600 dark:text-gray-300 font-medium">
+                  {stat.label}
                 </div>
               </div>
-            </CardContent>
-          </Card>
-        </section>
+            ))}
+          </div>
+        </div>
+      </section>
 
-
-      </main>
-
-
+      {/* Call to Action */}
+      <section className="py-20">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="bg-gradient-to-br from-blue-600 to-purple-600 rounded-3xl p-12 text-white relative overflow-hidden">
+            <div className="absolute inset-0 bg-pattern-light"></div>
+            <div className="relative">
+              <Crown className="w-16 h-16 mx-auto mb-6 text-yellow-300" />
+              <h2 className="text-3xl md:text-5xl font-bold mb-6">
+                Begin Your Faith Journey Today
+              </h2>
+              <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+                Join our welcoming community and discover the joy of growing in faith together. Your spiritual journey starts here.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Button 
+                  asChild
+                  size="lg"
+                  className="bg-white text-blue-600 hover:bg-gray-100 font-bold text-lg px-8 py-4"
+                >
+                  <a href="/api/login">
+                    Join Our Community
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </a>
+                </Button>
+                <Button 
+                  asChild
+                  variant="outline"
+                  size="lg"
+                  className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold text-lg px-8 py-4"
+                >
+                  <Link href="/donate">
+                    Support Our Mission
+                    <Heart className="w-5 h-5 ml-2" />
+                  </Link>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }
