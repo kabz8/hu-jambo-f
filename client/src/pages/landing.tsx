@@ -26,7 +26,7 @@ export default function Landing() {
                 Grow Your Faith
                 <span className="block text-blue-600 dark:text-blue-400">Together</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl">
+              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto text-center lg:text-left lg:mx-0">
                 Join our vibrant community of believers for worship, prayer, Bible study, and fellowship that strengthens your spiritual journey.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
