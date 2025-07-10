@@ -2,12 +2,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Leaf, Quote, Mountain, Sun, Moon, Heart } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
+import Header from "@/components/Header";
 
 export default function Meditation() {
   const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-background">
+      <Header />
       {/* Hero Section */}
       <div className="hero-gradient text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
