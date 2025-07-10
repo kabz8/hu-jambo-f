@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(222, 84%, 5%);
+  --muted: hsl(210, 40%, 96%);
+  --muted-foreground: hsl(215, 16%, 47%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(222, 84%, 5%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(222, 84%, 5%);
+  --border: hsl(214, 32%, 91%);
+  --input: hsl(214, 32%, 91%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(210, 40%, 96%);
+  --secondary-foreground: hsl(222, 84%, 5%);
+  --accent: hsl(210, 40%, 96%);
+  --accent-foreground: hsl(222, 84%, 5%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(221, 83%, 53%);
+  --radius: 0.5rem;
+  
+  /* Faith-themed colors */
+  --faith-blue: hsl(221, 83%, 53%);
+  --faith-gold: hsl(45, 93%, 47%);
+  --faith-purple: hsl(262, 83%, 58%);
+  --faith-gray: hsl(215, 16%, 47%);
+  --faith-green: hsl(142, 76%, 36%);
+  --faith-red: hsl(0, 84%, 60%);
+}
+
+.dark {
+  --background: hsl(222, 84%, 5%);
+  --foreground: hsl(210, 40%, 98%);
+  --muted: hsl(217, 32%, 17%);
+  --muted-foreground: hsl(215, 20%, 65%);
+  --popover: hsl(222, 84%, 5%);
+  --popover-foreground: hsl(210, 40%, 98%);
+  --card: hsl(222, 84%, 5%);
+  --card-foreground: hsl(210, 40%, 98%);
+  --border: hsl(217, 32%, 17%);
+  --input: hsl(217, 32%, 17%);
+  --primary: hsl(221, 83%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(217, 32%, 17%);
+  --secondary-foreground: hsl(210, 40%, 98%);
+  --accent: hsl(217, 32%, 17%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 62%, 30%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --ring: hsl(224, 71%, 4%);
+  --radius: 0.5rem;
+  
+  /* Faith-themed colors for dark mode */
+  --faith-blue: hsl(221, 83%, 53%);
+  --faith-gold: hsl(45, 93%, 47%);
+  --faith-purple: hsl(262, 83%, 58%);
+  --faith-gray: hsl(215, 20%, 65%);
+  --faith-green: hsl(142, 76%, 36%);
+  --faith-red: hsl(0, 84%, 60%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+
+  .hero-gradient {
+    background: linear-gradient(135deg, var(--faith-blue) 0%, hsl(221, 83%, 63%) 50%, var(--faith-purple) 100%);
+  }
+
+  .dark .hero-gradient {
+    background: linear-gradient(135deg, hsl(222, 84%, 5%) 0%, hsl(217, 32%, 17%) 50%, hsl(222, 84%, 5%) 100%);
+  }
+
+  .card-hover {
+    transition: all 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .dark .card-hover:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Faith-themed utility classes */
+  .bg-faith-blue {
+    background-color: var(--faith-blue);
+  }
+
+  .bg-faith-gold {
+    background-color: var(--faith-gold);
+  }
+
+  .bg-faith-purple {
+    background-color: var(--faith-purple);
+  }
+
+  .bg-faith-green {
+    background-color: var(--faith-green);
+  }
+
+  .text-faith-blue {
+    color: var(--faith-blue);
+  }
+
+  .text-faith-gold {
+    color: var(--faith-gold);
+  }
+
+  .text-faith-purple {
+    color: var(--faith-purple);
+  }
+
+  .text-faith-gray {
+    color: var(--faith-gray);
+  }
+
+  .text-faith-green {
+    color: var(--faith-green);
+  }
+
+  .text-faith-red {
+    color: var(--faith-red);
+  }
+
+  /* Spiritual styling enhancements */
+  .spiritual-gradient {
+    background: linear-gradient(135deg, var(--faith-blue) 0%, var(--faith-purple) 50%, var(--faith-gold) 100%);
+  }
+
+  .prayer-card {
+    border-left: 4px solid var(--faith-gold);
+  }
+
+  .testimony-card {
+    border-left: 4px solid var(--faith-red);
+  }
+
+  .verse-card {
+    border-left: 4px solid var(--faith-blue);
+  }
+
+  .meditation-card {
+    border-left: 4px solid var(--faith-green);
+  }
+
+  /* Animation enhancements */
+  .faith-pulse {
+    animation: faith-pulse 2s infinite;
+  }
+
+  @keyframes faith-pulse {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Responsive typography */
+  .faith-title {
+    @apply text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white;
+  }
+
+  .faith-subtitle {
+    @apply text-lg md:text-xl text-gray-600 dark:text-gray-300;
+  }
+
+  .faith-body {
+    @apply text-base text-gray-700 dark:text-gray-300 leading-relaxed;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: hsl(210, 40%, 96%);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--faith-blue);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(221, 83%, 43%);
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background: hsl(217, 32%, 17%);
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: var(--faith-blue);
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: hsl(221, 83%, 63%);
+  }
+}
