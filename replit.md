@@ -10,6 +10,9 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
+- **July 2025**: Updated site title to "Hu-jambo" across all language translations
+- **July 2025**: Replaced hero image with custom mountain landscape photo showing spiritual journey theme
+- **July 2025**: Completed comprehensive redesign of landing page and home dashboard with modern layouts
 - **December 2024**: Updated typography to use Crimson Text font for headings and Inter for body text to better suit the faith community aesthetic
 - **December 2024**: Created dedicated pages for Worship, Reading, Meditation, and Games with rich content and features
 - **December 2024**: Added navigation header with desktop and mobile responsive design for easy access to all sections
