@@ -4,6 +4,7 @@ import Header from "@/components/Header";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Users, Heart, Sparkles, Crown, Star } from "lucide-react";
+import heroImage from "@assets/7323_1752152530250.jpg";
 
 export default function Landing() {
   const { t } = useLanguage();
@@ -15,53 +16,53 @@ export default function Landing() {
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 overflow-hidden">
         <div className="absolute inset-0 bg-pattern"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="text-center lg:text-left">
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-700 dark:text-blue-300 text-sm font-medium mb-6">
-                <Sparkles className="w-4 h-4 mr-2" />
-                Welcome to Faith Journey
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="text-center lg:text-left order-2 lg:order-1">
+              <div className="inline-flex items-center px-3 py-1.5 sm:px-4 sm:py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-700 dark:text-blue-300 text-xs sm:text-sm font-medium mb-4 sm:mb-6">
+                <Sparkles className="w-3 h-3 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+                Welcome to Hu-jambo
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 leading-tight">
                 Grow Your Faith
                 <span className="block text-blue-600 dark:text-blue-400">Together</span>
               </h1>
-              <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto text-center lg:text-left lg:mx-0">
+              <p className="text-lg sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 max-w-2xl mx-auto text-center lg:text-left lg:mx-0">
                 Join our vibrant community of believers for worship, prayer, Bible study, and fellowship that strengthens your spiritual journey.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start">
                 <Button 
                   asChild
                   size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-lg px-8 py-4 shadow-lg"
+                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
                 >
                   <a href="/api/login">
                     Join Community
-                    <ArrowRight className="w-5 h-5 ml-2" />
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
                   </a>
                 </Button>
                 <Button 
                   variant="outline"
                   size="lg"
-                  className="font-semibold text-lg px-8 py-4"
+                  className="font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4"
                 >
                   Explore Activities
                 </Button>
               </div>
             </div>
-            <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-orange-400 via-pink-500 to-purple-500 rounded-3xl p-1 shadow-2xl">
+            <div className="relative order-1 lg:order-2 mb-8 lg:mb-0">
+              <div className="aspect-square max-w-sm mx-auto lg:max-w-none bg-gradient-to-br from-orange-400 via-pink-500 to-purple-500 rounded-2xl sm:rounded-3xl p-1 shadow-2xl">
                 <img 
-                  src="/attached_assets/7323_1752152530250.jpg" 
+                  src={heroImage} 
                   alt="Person on spiritual journey path with mountains in background" 
-                  className="w-full h-full object-cover rounded-3xl" 
+                  className="w-full h-full object-cover rounded-2xl sm:rounded-3xl" 
                 />
               </div>
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
-                <Crown className="w-12 h-12 text-yellow-900" />
+              <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-yellow-400 rounded-full flex items-center justify-center shadow-lg">
+                <Crown className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-yellow-900" />
               </div>
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-pink-400 rounded-full flex items-center justify-center shadow-lg">
-                <Heart className="w-10 h-10 text-pink-900" />
+              <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-pink-400 rounded-full flex items-center justify-center shadow-lg">
+                <Heart className="w-6 h-6 sm:w-8 sm:h-8 lg:w-10 lg:h-10 text-pink-900" />
               </div>
             </div>
           </div>
@@ -213,7 +214,7 @@ export default function Landing() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold text-lg px-8 py-4"
+                  className="border-2 border-white text-white hover:bg-white hover:text-blue-600 font-bold text-lg px-8 py-4 text-[#000000]"
                 >
                   <Link href="/donate">
                     Support Our Mission
