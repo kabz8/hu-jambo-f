@@ -77,7 +77,7 @@ export default function PrayerForm({ category, buttonText = "Request Prayer" }: 
           {buttonText}
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]">
+      <DialogContent className="w-[95vw] max-w-[425px] max-h-[90vh] overflow-y-auto">
         <DialogHeader>
           <DialogTitle>Prayer Request</DialogTitle>
         </DialogHeader>

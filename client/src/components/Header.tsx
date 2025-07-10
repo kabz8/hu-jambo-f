@@ -160,9 +160,9 @@ export default function Header() {
               </SheetContent>
             </Sheet>
 
-            {/* Language Dropdown */}
+            {/* Language Dropdown - Responsive sizing */}
             <Select value={language} onValueChange={(value) => setLanguage(value as any)}>
-              <SelectTrigger className="w-32">
+              <SelectTrigger className="w-20 sm:w-32 text-sm touch-target">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -173,10 +173,11 @@ export default function Header() {
               </SelectContent>
             </Select>
 
-            {/* Dark/Light Mode Toggle */}
+            {/* Dark/Light Mode Toggle - Enhanced for mobile */}
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+              className="p-2 rounded-md bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors touch-target"
+              aria-label="Toggle theme"
             >
               {theme === "light" ? (
                 <Moon className="h-5 w-5 text-gray-600 dark:text-gray-400" />

@@ -105,7 +105,7 @@ export default function Home() {
             {/* Faith Journey Activities */}
             <section>
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Continue Your Journey</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6">
                 <Card className="card-hover">
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-4">
