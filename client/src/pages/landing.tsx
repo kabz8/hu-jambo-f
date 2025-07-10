@@ -50,10 +50,10 @@ export default function Landing() {
               </div>
             </div>
             <div className="relative">
-              <div className="aspect-square bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-3xl p-1 shadow-2xl">
+              <div className="aspect-square bg-gradient-to-br from-orange-400 via-pink-500 to-purple-500 rounded-3xl p-1 shadow-2xl">
                 <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=800" 
-                  alt="Faith community gathering" 
+                  src="/attached_assets/7323_1752152530250.jpg" 
+                  alt="Person on spiritual journey path with mountains in background" 
                   className="w-full h-full object-cover rounded-3xl" 
                 />
               </div>
