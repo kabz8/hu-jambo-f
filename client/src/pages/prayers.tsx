@@ -12,23 +12,8 @@ import { Link } from "wouter";
 import { useToast } from "@/hooks/use-toast";
 
 export default function Prayers() {
-  const { user, isAuthenticated } = useAuth();
   const { toast } = useToast();
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
-
-  useEffect(() => {
-    if (!isAuthenticated) {
-      toast({
-        title: "Unauthorized",
-        description: "You are logged out. Logging in again...",
-        variant: "destructive",
-      });
-      setTimeout(() => {
-        window.location.href = "/api/login";
-      }, 500);
-      return;
-    }
-  }, [isAuthenticated, toast]);
 
   const { data: prayerRequests = [], isLoading } = useQuery({
     queryKey: ["/api/prayer-requests", selectedCategory],
@@ -51,9 +36,7 @@ export default function Prayers() {
     { id: "thanksgiving", label: "Thanksgiving", color: "bg-orange-100 text-orange-800" },
   ];
 
-  if (!isAuthenticated) {
-    return null;
-  }
+
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">

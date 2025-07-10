@@ -84,26 +84,11 @@ const CheckoutForm = () => {
 };
 
 export default function Donate() {
-  const { isAuthenticated, isLoading } = useAuth();
   const { toast } = useToast();
   const [clientSecret, setClientSecret] = useState("");
   const [amount, setAmount] = useState<number>(25);
   const [customAmount, setCustomAmount] = useState("");
   const [step, setStep] = useState<"amount" | "payment">("amount");
-
-  useEffect(() => {
-    if (!isLoading && !isAuthenticated) {
-      toast({
-        title: "Unauthorized",
-        description: "You are logged out. Logging in again...",
-        variant: "destructive",
-      });
-      setTimeout(() => {
-        window.location.href = "/api/login";
-      }, 500);
-      return;
-    }
-  }, [isAuthenticated, isLoading, toast]);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -173,17 +158,7 @@ export default function Donate() {
     }
   };
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-        <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full"></div>
-      </div>
-    );
-  }
 
-  if (!isAuthenticated) {
-    return null;
-  }
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">

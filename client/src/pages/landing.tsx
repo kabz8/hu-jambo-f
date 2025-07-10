@@ -36,10 +36,10 @@ export default function Landing() {
                   size="lg"
                   className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-base sm:text-lg px-6 sm:px-8 py-3 sm:py-4 shadow-lg"
                 >
-                  <a href="/api/login">
-                    Join Community
+                  <Link href="/worship">
+                    Start Your Journey
                     <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button 
                   variant="outline"
@@ -205,10 +205,10 @@ export default function Landing() {
                   size="lg"
                   className="bg-white text-blue-600 hover:bg-gray-100 font-bold text-lg px-8 py-4"
                 >
-                  <a href="/api/login">
-                    Join Our Community
+                  <Link href="/worship">
+                    Start Worshipping
                     <ArrowRight className="w-5 h-5 ml-2" />
-                  </a>
+                  </Link>
                 </Button>
                 <Button 
                   asChild

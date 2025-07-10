@@ -5,10 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/components/LanguageProvider";
-import { useAuth } from "@/hooks/useAuth";
 import NotFound from "@/pages/not-found";
 import Landing from "@/pages/landing";
-import Home from "@/pages/home";
 import Testimonies from "@/pages/testimonies";
 import Prayers from "@/pages/prayers";
 import Donate from "@/pages/donate";
@@ -24,56 +22,22 @@ import MeditateAlong from "@/pages/meditate-along";
 import GameAlong from "@/pages/game-along";
 
 function Router() {
-  const { isAuthenticated, isLoading } = useAuth();
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
-        <div className="text-center">
-          <div className="animate-spin w-8 h-8 border-4 border-primary border-t-transparent rounded-full mx-auto mb-4"></div>
-          <p className="text-gray-600 dark:text-gray-300">Loading...</p>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <Switch>
-      {!isAuthenticated ? (
-        <>
-          <Route path="/" component={Landing} />
-          <Route path="/testimonies" component={Landing} />
-          <Route path="/prayers" component={Landing} />
-          <Route path="/donate" component={Landing} />
-          <Route path="/worship" component={Worship} />
-          <Route path="/reading" component={Reading} />
-          <Route path="/meditation" component={Meditation} />
-          <Route path="/games" component={Games} />
-          <Route path="/testimony-along" component={TestimonyAlong} />
-          <Route path="/pray-along" component={PrayAlong} />
-          <Route path="/sing-along" component={SingAlong} />
-          <Route path="/read-along" component={ReadAlong} />
-          <Route path="/meditate-along" component={MeditateAlong} />
-          <Route path="/game-along" component={GameAlong} />
-        </>
-      ) : (
-        <>
-          <Route path="/" component={Home} />
-          <Route path="/testimonies" component={Testimonies} />
-          <Route path="/prayers" component={Prayers} />
-          <Route path="/donate" component={Donate} />
-          <Route path="/worship" component={Worship} />
-          <Route path="/reading" component={Reading} />
-          <Route path="/meditation" component={Meditation} />
-          <Route path="/games" component={Games} />
-          <Route path="/testimony-along" component={TestimonyAlong} />
-          <Route path="/pray-along" component={PrayAlong} />
-          <Route path="/sing-along" component={SingAlong} />
-          <Route path="/read-along" component={ReadAlong} />
-          <Route path="/meditate-along" component={MeditateAlong} />
-          <Route path="/game-along" component={GameAlong} />
-        </>
-      )}
+      <Route path="/" component={Landing} />
+      <Route path="/testimonies" component={Testimonies} />
+      <Route path="/prayers" component={Prayers} />
+      <Route path="/donate" component={Donate} />
+      <Route path="/worship" component={Worship} />
+      <Route path="/reading" component={Reading} />
+      <Route path="/meditation" component={Meditation} />
+      <Route path="/games" component={Games} />
+      <Route path="/testimony-along" component={TestimonyAlong} />
+      <Route path="/pray-along" component={PrayAlong} />
+      <Route path="/sing-along" component={SingAlong} />
+      <Route path="/read-along" component={ReadAlong} />
+      <Route path="/meditate-along" component={MeditateAlong} />
+      <Route path="/game-along" component={GameAlong} />
       <Route component={NotFound} />
     </Switch>
   );
