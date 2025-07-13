@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, ReactNode } from "react";
 
-type Language = "en" | "es" | "fr" | "pt";
+type Language = "en" | "sw" | "es" | "fr" | "pt";
 
 interface LanguageContextType {
   language: Language;
@@ -86,6 +86,32 @@ const translations: Record<Language, Record<string, string>> = {
     "newsletter.title": "Restez Connecté",
     "newsletter.description": "Abonnez-vous à notre newsletter pour les mises à jour, les dévotions et les nouvelles de la communauté",
     "contact.title": "Contactez-nous",
+  },
+  sw: {
+    "site.title": "Hu-jambo",
+    "site.tagline": "Jumuiya ya Imani na Urafiki",
+    "hero.title": "Tuwende Pamoja kwa Imani",
+    "hero.description": "Mungu anataka kutumia sisi kuwasaidia kila mmoja katika safari yetu ya imani. Tayari kushuhudia pamoja, kuomba pamoja, kuimba pamoja, kusoma pamoja, kutafakari pamoja na kucheza pamoja.",
+    "cta.join": "Jiunge na jumuiya yetu kwa ujenzi wa uwezo",
+    "cta.register": "Jiandikishe / Jisajili",
+    "cta.explore": "Chunguza Maudhui",
+    "testimony.title": "Ushahidi Pamoja",
+    "testimony.description": "Shiriki ushahidi wako wa kujenga na kutiwa moyo na wengine",
+    "prayer.title": "Omba Pamoja",
+    "prayer.description": "Jiunge na jumuiya yetu ya maombi kwa msaada na kuombea",
+    "worship.title": "Imba Pamoja",
+    "worship.description": "Jiunge katika ibada kupitia wimbo na muziki",
+    "reading.title": "Soma Pamoja",
+    "reading.description": "Zama kina katika Maandiko na ukuaji wa kiroho",
+    "meditation.title": "Tafakari Pamoja",
+    "meditation.description": "Pata amani na utafakari katika uumbaji wa Mungu",
+    "games.title": "Cheza Pamoja",
+    "games.description": "Michezo ya kiimaani kwa watoto na familia za Kikristo",
+    "support.title": "Unga Mkono Dhamira Yetu",
+    "support.description": "Tusaidie kuendelea kujenga jumuiya hii ya imani",
+    "newsletter.title": "Ungana Nasi",
+    "newsletter.description": "Jiandikishe kwa jarida letu kwa masasisho, maombi na habari za jumuiya",
+    "contact.title": "Wasiliana Nasi",
   },
   pt: {
     "site.title": "Hu-jambo",

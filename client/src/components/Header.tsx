@@ -167,6 +167,7 @@ export default function Header() {
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="en">English</SelectItem>
+                <SelectItem value="sw">Kiswahili</SelectItem>
                 <SelectItem value="es">Español</SelectItem>
                 <SelectItem value="fr">Français</SelectItem>
                 <SelectItem value="pt">Português</SelectItem>
