@@ -18,10 +18,27 @@ export default function Header() {
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center">
-                <Cross className="h-8 w-8 text-blue-800 dark:text-yellow-500 mr-2" />
-                <span className="text-xl font-bold text-gray-900 dark:text-white">
-                  {t("site.title")}
-                </span>
+                <div className="mr-2 sm:mr-3">
+                  <svg width="32" height="32" viewBox="0 0 40 40" className="text-blue-800 dark:text-yellow-500 sm:w-10 sm:h-10">
+                    <defs>
+                      <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="currentColor" stopOpacity="0.8" />
+                        <stop offset="100%" stopColor="currentColor" stopOpacity="1" />
+                      </linearGradient>
+                    </defs>
+                    <circle cx="20" cy="20" r="18" fill="url(#logoGradient)" stroke="currentColor" strokeWidth="2" />
+                    <text x="20" y="16" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">HU-JA</text>
+                    <text x="20" y="26" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">MBO</text>
+                  </svg>
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white leading-tight">
+                    HU-JAMBO
+                  </span>
+                  <span className="text-xs text-gray-600 dark:text-gray-400 leading-tight hidden sm:block">
+                    www.hu-jambo.com
+                  </span>
+                </div>
               </Link>
             </div>
           </div>
@@ -102,7 +119,30 @@ export default function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-64">
-                <nav className="flex flex-col space-y-4 mt-8">
+                <div className="flex items-center mb-8 mt-4">
+                  <div className="mr-3">
+                    <svg width="32" height="32" viewBox="0 0 40 40" className="text-blue-800 dark:text-yellow-500">
+                      <defs>
+                        <linearGradient id="logoGradientMobile" x1="0%" y1="0%" x2="100%" y2="100%">
+                          <stop offset="0%" stopColor="currentColor" stopOpacity="0.8" />
+                          <stop offset="100%" stopColor="currentColor" stopOpacity="1" />
+                        </linearGradient>
+                      </defs>
+                      <circle cx="20" cy="20" r="18" fill="url(#logoGradientMobile)" stroke="currentColor" strokeWidth="2" />
+                      <text x="20" y="16" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">HU-JA</text>
+                      <text x="20" y="26" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">MBO</text>
+                    </svg>
+                  </div>
+                  <div className="flex flex-col">
+                    <span className="text-lg font-bold text-gray-900 dark:text-white leading-tight">
+                      HU-JAMBO
+                    </span>
+                    <span className="text-xs text-gray-600 dark:text-gray-400 leading-tight">
+                      www.hu-jambo.com
+                    </span>
+                  </div>
+                </div>
+                <nav className="flex flex-col space-y-4">
                   <div className="border-b border-gray-200 dark:border-gray-700 pb-4">
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wide">Faith Activities</p>
                     <div className="space-y-1">
