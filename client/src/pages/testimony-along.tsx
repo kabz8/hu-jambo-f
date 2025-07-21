@@ -29,6 +29,7 @@ export default function TestimonyAlong() {
   });
 
   const handleLike = (testimonyIndex) => {
+    console.log('Like clicked for testimony:', testimonyIndex);
     const newLiked = new Set(likedTestimonies);
     if (newLiked.has(testimonyIndex)) {
       newLiked.delete(testimonyIndex);
@@ -39,16 +40,19 @@ export default function TestimonyAlong() {
   };
 
   const handleReadMore = (testimony) => {
+    console.log('Read More clicked for:', testimony.title);
     setSelectedTestimony(testimony);
   };
 
   const handleCategoryClick = (category) => {
+    console.log('Category clicked:', category.title);
     setSelectedCategory(category);
     // In a real app, this would filter testimonies by category
     alert(`Viewing ${category.title} testimonies - feature coming soon!`);
   };
 
   const handleViewComments = (testimonyIndex, testimony) => {
+    console.log('Comments clicked for:', testimony.title, 'index:', testimonyIndex);
     setShowCommentsDialog({ index: testimonyIndex, testimony });
   };
 
@@ -385,8 +389,12 @@ export default function TestimonyAlong() {
           <Button 
             className="bg-white text-blue-600 hover:bg-gray-100 font-semibold"
             onClick={() => {
+              console.log('Share Testimony Now clicked - scrolling to top');
               // Scroll to the testimony form at the top
-              document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+              const mainElement = document.querySelector('main');
+              if (mainElement) {
+                mainElement.scrollIntoView({ behavior: 'smooth' });
+              }
             }}
           >
             Share Your Testimony Now
