@@ -13,6 +13,20 @@ export default function TestimonyAlong() {
   const [selectedTestimony, setSelectedTestimony] = useState(null);
   const [likedTestimonies, setLikedTestimonies] = useState(new Set());
   const [selectedCategory, setSelectedCategory] = useState(null);
+  const [showComments, setShowComments] = useState(null);
+  const [comments, setComments] = useState({
+    0: [
+      { author: "Sarah K.", text: "This is so encouraging! Thank you for sharing.", time: "2 hours ago" },
+      { author: "Michael R.", text: "God is so good! Praise Him for this testimony.", time: "4 hours ago" }
+    ],
+    1: [
+      { author: "David L.", text: "Amazing story of God's faithfulness!", time: "1 day ago" },
+      { author: "Grace M.", text: "I needed to hear this today. Blessings!", time: "2 days ago" }
+    ],
+    2: [
+      { author: "Pastor John", text: "What a powerful testimony of redemption!", time: "3 days ago" }
+    ]
+  });
 
   const handleLike = (testimonyIndex) => {
     const newLiked = new Set(likedTestimonies);
@@ -32,6 +46,10 @@ export default function TestimonyAlong() {
     setSelectedCategory(category);
     // In a real app, this would filter testimonies by category
     alert(`Viewing ${category.title} testimonies - feature coming soon!`);
+  };
+
+  const handleViewComments = (testimonyIndex) => {
+    setShowComments(showComments === testimonyIndex ? null : testimonyIndex);
   };
 
   return (
@@ -162,10 +180,13 @@ export default function TestimonyAlong() {
                         <Heart className={`w-4 h-4 mr-1 ${likedTestimonies.has(index) ? 'fill-current' : ''}`} />
                         {testimony.likes + (likedTestimonies.has(index) ? 1 : 0)}
                       </button>
-                      <div className="flex items-center">
+                      <button 
+                        onClick={() => handleViewComments(index)}
+                        className="flex items-center hover:text-blue-500 transition-colors"
+                      >
                         <MessageCircle className="w-4 h-4 mr-1" />
-                        {testimony.comments}
-                      </div>
+                        {testimony.comments} comments
+                      </button>
                     </div>
                     <Button 
                       size="sm" 
@@ -176,6 +197,46 @@ export default function TestimonyAlong() {
                     </Button>
                   </div>
                 </CardContent>
+                
+                {/* Comments Section */}
+                {showComments === index && (
+                  <div className="border-t border-gray-200 dark:border-gray-700 p-6 bg-gray-50 dark:bg-gray-800">
+                    <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Comments</h4>
+                    <div className="space-y-3">
+                      {comments[index] ? comments[index].map((comment, commentIndex) => (
+                        <div key={commentIndex} className="bg-white dark:bg-gray-700 p-3 rounded-lg">
+                          <div className="flex justify-between items-start mb-2">
+                            <span className="font-medium text-gray-900 dark:text-white text-sm">
+                              {comment.author}
+                            </span>
+                            <span className="text-xs text-gray-500 dark:text-gray-400">
+                              {comment.time}
+                            </span>
+                          </div>
+                          <p className="text-gray-700 dark:text-gray-300 text-sm">
+                            {comment.text}
+                          </p>
+                        </div>
+                      )) : (
+                        <p className="text-gray-500 dark:text-gray-400 text-sm italic">
+                          No comments yet. Be the first to encourage with a comment!
+                        </p>
+                      )}
+                      
+                      {/* Add Comment Button */}
+                      <div className="pt-3 border-t border-gray-200 dark:border-gray-600">
+                        <Button 
+                          size="sm" 
+                          variant="outline" 
+                          className="w-full"
+                          onClick={() => alert('Comment feature coming soon! This will allow users to add encouraging comments.')}
+                        >
+                          Add Encouraging Comment
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </Card>
             ))}
           </div>
