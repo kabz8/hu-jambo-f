@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Heart, Users, Clock, BookOpen, Flame, Shield } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import PrayerForm from "@/components/PrayerForm";
@@ -8,6 +10,22 @@ import Footer from "@/components/Footer";
 
 export default function PrayAlong() {
   const { t } = useLanguage();
+  const [selectedPrayer, setSelectedPrayer] = useState(null);
+  const [prayedFor, setPrayedFor] = useState(new Set());
+
+  const handlePrayForThis = (prayerIndex) => {
+    const newPrayedFor = new Set(prayedFor);
+    if (newPrayedFor.has(prayerIndex)) {
+      newPrayedFor.delete(prayerIndex);
+    } else {
+      newPrayedFor.add(prayerIndex);
+    }
+    setPrayedFor(newPrayedFor);
+  };
+
+  const handleViewDetails = (prayer) => {
+    setSelectedPrayer(prayer);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -136,11 +154,28 @@ export default function PrayAlong() {
                   <div className="flex justify-between items-center">
                     <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
                       <Heart className="w-4 h-4 mr-1" />
-                      {request.prayerCount} praying
+                      {request.prayerCount + (prayedFor.has(index) ? 1 : 0)} praying
                     </div>
-                    <Button size="sm" className="bg-purple-600 hover:bg-purple-700 text-white">
-                      Pray Now
-                    </Button>
+                    <div className="flex space-x-2">
+                      <Button 
+                        size="sm" 
+                        variant="outline"
+                        onClick={() => handleViewDetails(request)}
+                      >
+                        Details
+                      </Button>
+                      <Button 
+                        size="sm" 
+                        className={`${
+                          prayedFor.has(index) 
+                            ? 'bg-green-600 hover:bg-green-700' 
+                            : 'bg-purple-600 hover:bg-purple-700'
+                        } text-white`}
+                        onClick={() => handlePrayForThis(index)}
+                      >
+                        {prayedFor.has(index) ? 'Prayed ✓' : 'Pray Now'}
+                      </Button>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
@@ -390,13 +425,70 @@ export default function PrayAlong() {
           <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
             Your prayers matter! Join our community in intercession and experience the power of united prayer.
           </p>
-          <Button className="bg-white text-purple-600 hover:bg-gray-100 font-semibold">
+          <Button 
+            className="bg-white text-purple-600 hover:bg-gray-100 font-semibold"
+            onClick={() => {
+              // Scroll to the prayer form at the top
+              document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Submit a Prayer Request
           </Button>
         </section>
       </main>
 
       <Footer />
+
+      {/* Prayer Details Dialog */}
+      <Dialog open={!!selectedPrayer} onOpenChange={() => setSelectedPrayer(null)}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          {selectedPrayer && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-white">
+                  {selectedPrayer.title}
+                </DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <span className="text-xs bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-300 px-2 py-1 rounded">
+                      {selectedPrayer.category}
+                    </span>
+                    {selectedPrayer.urgent && (
+                      <span className="text-xs bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-300 px-2 py-1 rounded">
+                        Urgent
+                      </span>
+                    )}
+                  </div>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">{selectedPrayer.date}</span>
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-300">by {selectedPrayer.author}</p>
+                <div className="prose prose-sm max-w-none dark:prose-invert">
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {selectedPrayer.request}
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed mt-4">
+                    <strong>How to pray for this request:</strong>
+                  </p>
+                  <ul className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    <li>Pray for God's healing power and peace</li>
+                    <li>Ask for wisdom for the doctors and medical team</li>
+                    <li>Pray for strength for the family during this time</li>
+                    <li>Believe God for complete restoration</li>
+                  </ul>
+                </div>
+                <div className="flex items-center space-x-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                    <Heart className="w-4 h-4 mr-1" />
+                    {selectedPrayer.prayerCount} people praying
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }

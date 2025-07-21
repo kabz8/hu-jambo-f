@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Music, Play, Download, Heart, Mic, Users } from "lucide-react";
@@ -7,6 +8,28 @@ import Footer from "@/components/Footer";
 
 export default function SingAlong() {
   const { t } = useLanguage();
+  const [likedSongs, setLikedSongs] = useState(new Set());
+  const [playingSong, setPlayingSong] = useState(null);
+
+  const handleLikeSong = (songIndex) => {
+    const newLiked = new Set(likedSongs);
+    if (newLiked.has(songIndex)) {
+      newLiked.delete(songIndex);
+    } else {
+      newLiked.add(songIndex);
+    }
+    setLikedSongs(newLiked);
+  };
+
+  const handlePlaySong = (songIndex) => {
+    if (playingSong === songIndex) {
+      setPlayingSong(null);
+      alert('Song paused! In a real app, this would control audio playback.');
+    } else {
+      setPlayingSong(songIndex);
+      alert('Song playing! In a real app, this would start audio playback.');
+    }
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -131,13 +154,33 @@ export default function SingAlong() {
                   </div>
                   
                   <div className="flex gap-2">
-                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white flex-1">
+                    <Button 
+                      size="sm" 
+                      className={`${
+                        playingSong === index 
+                          ? 'bg-green-600 hover:bg-green-700' 
+                          : 'bg-blue-600 hover:bg-blue-700'
+                      } text-white flex-1`}
+                      onClick={() => handlePlaySong(index)}
+                    >
                       <Play className="w-4 h-4 mr-2" />
-                      Sing Along
+                      {playingSong === index ? 'Pause' : 'Sing Along'}
                     </Button>
-                    <Button size="sm" variant="outline">
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      onClick={() => alert('Lyrics download feature coming soon!')}
+                    >
                       <Download className="w-4 h-4 mr-2" />
                       Lyrics
+                    </Button>
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      className={`${likedSongs.has(index) ? 'text-red-500 border-red-500' : ''}`}
+                      onClick={() => handleLikeSong(index)}
+                    >
+                      <Heart className={`w-4 h-4 ${likedSongs.has(index) ? 'fill-current' : ''}`} />
                     </Button>
                   </div>
                 </CardContent>

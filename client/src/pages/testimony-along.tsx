@@ -1,5 +1,7 @@
+import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Heart, Users, Share2, Star, MessageCircle, Calendar } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import TestimonyForm from "@/components/TestimonyForm";
@@ -8,6 +10,29 @@ import Footer from "@/components/Footer";
 
 export default function TestimonyAlong() {
   const { t } = useLanguage();
+  const [selectedTestimony, setSelectedTestimony] = useState(null);
+  const [likedTestimonies, setLikedTestimonies] = useState(new Set());
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const handleLike = (testimonyIndex) => {
+    const newLiked = new Set(likedTestimonies);
+    if (newLiked.has(testimonyIndex)) {
+      newLiked.delete(testimonyIndex);
+    } else {
+      newLiked.add(testimonyIndex);
+    }
+    setLikedTestimonies(newLiked);
+  };
+
+  const handleReadMore = (testimony) => {
+    setSelectedTestimony(testimony);
+  };
+
+  const handleCategoryClick = (category) => {
+    setSelectedCategory(category);
+    // In a real app, this would filter testimonies by category
+    alert(`Viewing ${category.title} testimonies - feature coming soon!`);
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -128,16 +153,25 @@ export default function TestimonyAlong() {
                   </p>
                   <div className="flex justify-between items-center">
                     <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
-                      <div className="flex items-center">
-                        <Heart className="w-4 h-4 mr-1" />
-                        {testimony.likes}
-                      </div>
+                      <button 
+                        onClick={() => handleLike(index)}
+                        className={`flex items-center hover:text-red-500 transition-colors ${
+                          likedTestimonies.has(index) ? 'text-red-500' : ''
+                        }`}
+                      >
+                        <Heart className={`w-4 h-4 mr-1 ${likedTestimonies.has(index) ? 'fill-current' : ''}`} />
+                        {testimony.likes + (likedTestimonies.has(index) ? 1 : 0)}
+                      </button>
                       <div className="flex items-center">
                         <MessageCircle className="w-4 h-4 mr-1" />
                         {testimony.comments}
                       </div>
                     </div>
-                    <Button size="sm" variant="outline">
+                    <Button 
+                      size="sm" 
+                      variant="outline"
+                      onClick={() => handleReadMore(testimony)}
+                    >
                       Read More
                     </Button>
                   </div>
@@ -218,7 +252,11 @@ export default function TestimonyAlong() {
                     {category.title}
                   </h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{category.count}</p>
-                  <Button size="sm" className="w-full bg-gray-600 hover:bg-gray-700 text-white">
+                  <Button 
+                    size="sm" 
+                    className="w-full bg-gray-600 hover:bg-gray-700 text-white"
+                    onClick={() => handleCategoryClick(category)}
+                  >
                     View Stories
                   </Button>
                 </CardContent>
@@ -323,13 +361,64 @@ export default function TestimonyAlong() {
           <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
             God has done amazing things in your life. Share your testimony to encourage others and bring glory to His name.
           </p>
-          <Button className="bg-white text-blue-600 hover:bg-gray-100 font-semibold">
+          <Button 
+            className="bg-white text-blue-600 hover:bg-gray-100 font-semibold"
+            onClick={() => {
+              // Scroll to the testimony form at the top
+              document.querySelector('main').scrollIntoView({ behavior: 'smooth' });
+            }}
+          >
             Share Your Testimony Now
           </Button>
         </section>
       </main>
 
       <Footer />
+
+      {/* Read More Dialog */}
+      <Dialog open={!!selectedTestimony} onOpenChange={() => setSelectedTestimony(null)}>
+        <DialogContent className="max-w-2xl max-h-[80vh] overflow-y-auto">
+          {selectedTestimony && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-2xl font-bold text-gray-900 dark:text-white">
+                  {selectedTestimony.title}
+                </DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-300 px-2 py-1 rounded">
+                    {selectedTestimony.category}
+                  </span>
+                  <span className="text-xs text-gray-500 dark:text-gray-400">{selectedTestimony.date}</span>
+                </div>
+                <p className="text-sm text-gray-600 dark:text-gray-300">by {selectedTestimony.author}</p>
+                <div className="prose prose-sm max-w-none dark:prose-invert">
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    {selectedTestimony.excerpt}
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    This is where the full testimony content would appear. In this demonstration, you can see how clicking "Read More" opens a detailed view of the testimony. The actual implementation would load the complete testimony text from a database.
+                  </p>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    This interactive feature shows how users can engage with testimonies in a meaningful way, allowing them to read the full stories that inspire and encourage their faith journey.
+                  </p>
+                </div>
+                <div className="flex items-center space-x-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                    <Heart className="w-4 h-4 mr-1" />
+                    {selectedTestimony.likes} likes
+                  </div>
+                  <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
+                    <MessageCircle className="w-4 h-4 mr-1" />
+                    {selectedTestimony.comments} comments
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
