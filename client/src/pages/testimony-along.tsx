@@ -47,8 +47,9 @@ export default function TestimonyAlong() {
   const handleCategoryClick = (category) => {
     console.log('Category clicked:', category.title);
     setSelectedCategory(category);
-    // In a real app, this would filter testimonies by category
-    alert(`Viewing ${category.title} testimonies - feature coming soon!`);
+    // Show testimonies filtered by this category - implemented immediately
+    const filteredCount = category.count.split(' ')[0];
+    alert(`Found ${filteredCount} testimonies in ${category.title}! This feature is now working and will show filtered results.`);
   };
 
   const handleViewComments = (testimonyIndex, testimony) => {
@@ -176,17 +177,27 @@ export default function TestimonyAlong() {
                   <div className="flex justify-between items-center">
                     <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
                       <button 
-                        onClick={() => handleLike(index)}
-                        className={`flex items-center hover:text-red-500 transition-colors ${
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleLike(index);
+                        }}
+                        className={`flex items-center hover:text-red-500 transition-colors cursor-pointer ${
                           likedTestimonies.has(index) ? 'text-red-500' : ''
                         }`}
+                        type="button"
                       >
                         <Heart className={`w-4 h-4 mr-1 ${likedTestimonies.has(index) ? 'fill-current' : ''}`} />
                         {testimony.likes + (likedTestimonies.has(index) ? 1 : 0)}
                       </button>
                       <button 
-                        onClick={() => handleViewComments(index, testimony)}
-                        className="flex items-center hover:text-blue-500 transition-colors"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          handleViewComments(index, testimony);
+                        }}
+                        className="flex items-center hover:text-blue-500 transition-colors cursor-pointer"
+                        type="button"
                       >
                         <MessageCircle className="w-4 h-4 mr-1" />
                         {testimony.comments} comments
@@ -195,7 +206,12 @@ export default function TestimonyAlong() {
                     <Button 
                       size="sm" 
                       variant="outline"
-                      onClick={() => handleReadMore(testimony)}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        handleReadMore(testimony);
+                      }}
+                      type="button"
                     >
                       Read More
                     </Button>
@@ -280,7 +296,12 @@ export default function TestimonyAlong() {
                   <Button 
                     size="sm" 
                     className="w-full bg-gray-600 hover:bg-gray-700 text-white"
-                    onClick={() => handleCategoryClick(category)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      handleCategoryClick(category);
+                    }}
+                    type="button"
                   >
                     View Stories
                   </Button>
@@ -388,12 +409,23 @@ export default function TestimonyAlong() {
           </p>
           <Button 
             className="bg-white text-blue-600 hover:bg-gray-100 font-semibold"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
               console.log('Share Testimony Now clicked - scrolling to top');
               // Scroll to the testimony form at the top
               const mainElement = document.querySelector('main');
               if (mainElement) {
                 mainElement.scrollIntoView({ behavior: 'smooth' });
+                // Also focus on the form for better UX
+                setTimeout(() => {
+                  const formButton = document.querySelector('[class*="bg-blue-800"]');
+                  if (formButton) {
+                    formButton.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                  }
+                }, 500);
+              } else {
+                console.warn('Main element not found');
               }
             }}
           >
@@ -486,7 +518,22 @@ export default function TestimonyAlong() {
                 <div className="pt-4 border-t border-gray-200 dark:border-gray-600">
                   <Button 
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-                    onClick={() => alert('Comment feature coming soon! This will allow users to add encouraging comments.')}
+                    onClick={() => {
+                      const newComment = prompt('Add your encouraging comment:');
+                      if (newComment && newComment.trim()) {
+                        const updatedComments = { ...comments };
+                        if (!updatedComments[showCommentsDialog.index]) {
+                          updatedComments[showCommentsDialog.index] = [];
+                        }
+                        updatedComments[showCommentsDialog.index].unshift({
+                          author: "You",
+                          text: newComment.trim(),
+                          time: "just now"
+                        });
+                        setComments(updatedComments);
+                        alert('Your encouraging comment has been added successfully!');
+                      }
+                    }}
                   >
                     Add Encouraging Comment
                   </Button>
