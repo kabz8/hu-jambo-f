@@ -8,6 +8,46 @@ import Footer from "@/components/Footer";
 export default function MeditateAlong() {
   const { t } = useLanguage();
 
+  const handleStartMeditation = () => {
+    console.log('Start Meditation clicked');
+    alert('Starting your meditation session! This will launch a guided meditation experience.');
+  };
+
+  const handleScheduleLater = () => {
+    console.log('Schedule for Later clicked');
+    alert('Schedule feature activated! You can set reminders for your meditation sessions.');
+  };
+
+  const handleJoinGroup = () => {
+    console.log('Join Group Session clicked');
+    alert('Joining group meditation! This will connect you with other community members.');
+  };
+
+  const handleExploreMeditations = (category) => {
+    console.log('Explore Meditations clicked for:', category);
+    alert(`Exploring ${category} meditations! This will show all available sessions in this category.`);
+  };
+
+  const handleJoinSession = (session) => {
+    console.log('Join Session clicked for:', session);
+    alert(`Joining "${session}" meditation session! This will connect you to the live session.`);
+  };
+
+  const handleViewProgress = () => {
+    console.log('View Full Progress clicked');
+    alert('Opening your complete meditation journey progress! This shows detailed analytics and achievements.');
+  };
+
+  const handleExploreResources = (resource) => {
+    console.log('Explore Resources clicked for:', resource);
+    alert(`Exploring ${resource} resources! This will show detailed guides and materials.`);
+  };
+
+  const handleStartMeditatingToday = () => {
+    console.log('Start Meditating Today clicked');
+    alert('Welcome to your meditation journey! This will begin with a beginner-friendly session.');
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -106,15 +146,39 @@ export default function MeditateAlong() {
               </div>
               
               <div className="flex flex-wrap justify-center gap-4">
-                <Button className="bg-green-600 hover:bg-green-700 text-white">
+                <Button 
+                  className="bg-green-600 hover:bg-green-700 text-white"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleStartMeditation();
+                  }}
+                  type="button"
+                >
                   <Play className="w-4 h-4 mr-2" />
                   Start Meditation
                 </Button>
-                <Button variant="outline">
+                <Button 
+                  variant="outline"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleScheduleLater();
+                  }}
+                  type="button"
+                >
                   <Clock className="w-4 h-4 mr-2" />
                   Schedule for Later
                 </Button>
-                <Button variant="outline">
+                <Button 
+                  variant="outline"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleJoinGroup();
+                  }}
+                  type="button"
+                >
                   <Users className="w-4 h-4 mr-2" />
                   Join Group Session
                 </Button>
@@ -210,7 +274,15 @@ export default function MeditateAlong() {
                     </div>
                   </div>
                   
-                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
+                  <Button 
+                    className="w-full bg-green-600 hover:bg-green-700 text-white"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      handleExploreMeditations(category.title);
+                    }}
+                    type="button"
+                  >
                     Explore Meditations
                   </Button>
                 </CardContent>
@@ -290,7 +362,15 @@ export default function MeditateAlong() {
                     </div>
                   </div>
                   
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                  <Button 
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      handleJoinSession(session.title);
+                    }}
+                    type="button"
+                  >
                     Join Session
                   </Button>
                 </CardContent>
@@ -352,7 +432,15 @@ export default function MeditateAlong() {
               </div>
               
               <div className="mt-8 text-center">
-                <Button className="bg-purple-600 hover:bg-purple-700 text-white">
+                <Button 
+                  className="bg-purple-600 hover:bg-purple-700 text-white"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    handleViewProgress();
+                  }}
+                  type="button"
+                >
                   View Full Progress
                 </Button>
               </div>
@@ -400,7 +488,15 @@ export default function MeditateAlong() {
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">{resource.description}</p>
                   <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">{resource.resources}</p>
-                  <Button className="bg-gray-600 hover:bg-gray-700 text-white">
+                  <Button 
+                    className="bg-gray-600 hover:bg-gray-700 text-white"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      e.stopPropagation();
+                      handleExploreResources(resource.title);
+                    }}
+                    type="button"
+                  >
                     Explore Resources
                   </Button>
                 </CardContent>
@@ -496,7 +592,15 @@ export default function MeditateAlong() {
           <p className="text-lg mb-6 opacity-90 max-w-2xl mx-auto">
             Take the first step toward deeper intimacy with God through meditation. Join our community in finding peace and stillness in His presence.
           </p>
-          <Button className="bg-white text-green-600 hover:bg-gray-100 font-semibold">
+          <Button 
+            className="bg-white text-green-600 hover:bg-gray-100 font-semibold"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              handleStartMeditatingToday();
+            }}
+            type="button"
+          >
             Start Meditating Today
           </Button>
         </section>
