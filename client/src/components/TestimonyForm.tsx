@@ -14,11 +14,17 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Plus } from "lucide-react";
 
 const testimonySchema = z.object({
+  firstName: z.string().min(1, "First name is required").max(50, "First name is too long"),
+  email: z.string().email("Please enter a valid email address").optional().or(z.literal("")),
+  phoneNumber: z.string().min(1, "Phone number is required").max(20, "Phone number is too long"),
   title: z.string().min(1, "Title is required").max(200, "Title is too long"),
   content: z.string().min(10, "Content must be at least 10 characters").max(5000, "Content is too long"),
   category: z.enum(["personal", "group", "family", "marriage"], {
     required_error: "Please select a category",
   }),
+}).refine((data) => data.email || data.phoneNumber, {
+  message: "Please provide either email or phone number for contact",
+  path: ["phoneNumber"],
 });
 
 type TestimonyFormData = z.infer<typeof testimonySchema>;
@@ -31,6 +37,9 @@ export default function TestimonyForm() {
   const form = useForm<TestimonyFormData>({
     resolver: zodResolver(testimonySchema),
     defaultValues: {
+      firstName: "",
+      email: "",
+      phoneNumber: "",
       title: "",
       content: "",
       category: undefined,
@@ -80,10 +89,55 @@ export default function TestimonyForm() {
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField
               control={form.control}
+              name="firstName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>First Name *</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Enter your first name" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email Address</FormLabel>
+                  <FormControl>
+                    <Input placeholder="your.email@example.com" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="phoneNumber"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Phone Number</FormLabel>
+                  <FormControl>
+                    <Input placeholder="+1 (555) 123-4567" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                  <p className="text-xs text-gray-500 mt-1">
+                    * Either phone number or email is required for contact
+                  </p>
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
               name="title"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Title</FormLabel>
+                  <FormLabel>Testimony Title *</FormLabel>
                   <FormControl>
                     <Input placeholder="Enter testimony title" {...field} />
                   </FormControl>
