@@ -4,6 +4,7 @@ import { Heart, Users, Clock, BookOpen, Flame, Shield } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import PrayerForm from "@/components/PrayerForm";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function PrayAlong() {
   const { t } = useLanguage();
@@ -394,6 +395,8 @@ export default function PrayAlong() {
           </Button>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

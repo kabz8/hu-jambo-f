@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, Users, Heart, Sparkles, Crown, Star } from "lucide-react";
@@ -226,6 +227,8 @@ export default function Landing() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </div>
   );
 }

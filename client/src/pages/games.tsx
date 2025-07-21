@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Gamepad2, Star, Trophy, Users, Clock, Play } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Games() {
   const { t } = useLanguage();
@@ -412,6 +413,8 @@ export default function Games() {
           </Button>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

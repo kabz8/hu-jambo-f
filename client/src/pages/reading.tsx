@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Book, Calendar, Quote, Search, BookOpen, Star } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Reading() {
   const { t } = useLanguage();
@@ -291,6 +292,8 @@ export default function Reading() {
           </div>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

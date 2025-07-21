@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Music, Play, Download, Heart } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function Worship() {
   const { t } = useLanguage();
@@ -252,6 +253,8 @@ export default function Worship() {
           </Button>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

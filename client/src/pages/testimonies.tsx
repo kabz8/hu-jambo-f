@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "@/hooks/useAuth";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import TestimonyForm from "@/components/TestimonyForm";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -167,6 +168,8 @@ export default function Testimonies() {
           </Card>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

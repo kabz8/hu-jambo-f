@@ -4,6 +4,7 @@ import { Heart, Users, Share2, Star, MessageCircle, Calendar } from "lucide-reac
 import { useLanguage } from "@/components/LanguageProvider";
 import TestimonyForm from "@/components/TestimonyForm";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function TestimonyAlong() {
   const { t } = useLanguage();
@@ -327,6 +328,8 @@ export default function TestimonyAlong() {
           </Button>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

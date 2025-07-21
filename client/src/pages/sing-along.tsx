@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Music, Play, Download, Heart, Mic, Users } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function SingAlong() {
   const { t } = useLanguage();
@@ -474,6 +475,8 @@ export default function SingAlong() {
           </Button>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Leaf, Clock, Users, Play, Pause, Heart } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function MeditateAlong() {
   const { t } = useLanguage();
@@ -500,6 +501,8 @@ export default function MeditateAlong() {
           </Button>
         </section>
       </main>
+
+      <Footer />
     </div>
   );
 }
