@@ -13,7 +13,7 @@ export default function TestimonyAlong() {
   const [selectedTestimony, setSelectedTestimony] = useState(null);
   const [likedTestimonies, setLikedTestimonies] = useState(new Set());
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [showComments, setShowComments] = useState(null);
+  const [showCommentsDialog, setShowCommentsDialog] = useState(null);
   const [comments, setComments] = useState({
     0: [
       { author: "Sarah K.", text: "This is so encouraging! Thank you for sharing.", time: "2 hours ago" },
@@ -48,8 +48,8 @@ export default function TestimonyAlong() {
     alert(`Viewing ${category.title} testimonies - feature coming soon!`);
   };
 
-  const handleViewComments = (testimonyIndex) => {
-    setShowComments(showComments === testimonyIndex ? null : testimonyIndex);
+  const handleViewComments = (testimonyIndex, testimony) => {
+    setShowCommentsDialog({ index: testimonyIndex, testimony });
   };
 
   return (
@@ -181,7 +181,7 @@ export default function TestimonyAlong() {
                         {testimony.likes + (likedTestimonies.has(index) ? 1 : 0)}
                       </button>
                       <button 
-                        onClick={() => handleViewComments(index)}
+                        onClick={() => handleViewComments(index, testimony)}
                         className="flex items-center hover:text-blue-500 transition-colors"
                       >
                         <MessageCircle className="w-4 h-4 mr-1" />
@@ -197,46 +197,6 @@ export default function TestimonyAlong() {
                     </Button>
                   </div>
                 </CardContent>
-                
-                {/* Comments Section */}
-                {showComments === index && (
-                  <div className="border-t border-gray-200 dark:border-gray-700 p-6 bg-gray-50 dark:bg-gray-800">
-                    <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Comments</h4>
-                    <div className="space-y-3">
-                      {comments[index] ? comments[index].map((comment, commentIndex) => (
-                        <div key={commentIndex} className="bg-white dark:bg-gray-700 p-3 rounded-lg">
-                          <div className="flex justify-between items-start mb-2">
-                            <span className="font-medium text-gray-900 dark:text-white text-sm">
-                              {comment.author}
-                            </span>
-                            <span className="text-xs text-gray-500 dark:text-gray-400">
-                              {comment.time}
-                            </span>
-                          </div>
-                          <p className="text-gray-700 dark:text-gray-300 text-sm">
-                            {comment.text}
-                          </p>
-                        </div>
-                      )) : (
-                        <p className="text-gray-500 dark:text-gray-400 text-sm italic">
-                          No comments yet. Be the first to encourage with a comment!
-                        </p>
-                      )}
-                      
-                      {/* Add Comment Button */}
-                      <div className="pt-3 border-t border-gray-200 dark:border-gray-600">
-                        <Button 
-                          size="sm" 
-                          variant="outline" 
-                          className="w-full"
-                          onClick={() => alert('Comment feature coming soon! This will allow users to add encouraging comments.')}
-                        >
-                          Add Encouraging Comment
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </Card>
             ))}
           </div>
@@ -474,6 +434,54 @@ export default function TestimonyAlong() {
                     <MessageCircle className="w-4 h-4 mr-1" />
                     {selectedTestimony.comments} comments
                   </div>
+                </div>
+              </div>
+            </>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      {/* Comments Dialog */}
+      <Dialog open={!!showCommentsDialog} onOpenChange={() => setShowCommentsDialog(null)}>
+        <DialogContent className="max-w-lg max-h-[80vh] overflow-y-auto">
+          {showCommentsDialog && (
+            <>
+              <DialogHeader>
+                <DialogTitle className="text-xl font-bold text-gray-900 dark:text-white">
+                  Comments - {showCommentsDialog.testimony.title}
+                </DialogTitle>
+              </DialogHeader>
+              <div className="space-y-4">
+                <div className="max-h-[50vh] overflow-y-auto space-y-3">
+                  {comments[showCommentsDialog.index] ? comments[showCommentsDialog.index].map((comment, commentIndex) => (
+                    <div key={commentIndex} className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+                      <div className="flex justify-between items-start mb-2">
+                        <span className="font-medium text-gray-900 dark:text-white text-sm">
+                          {comment.author}
+                        </span>
+                        <span className="text-xs text-gray-500 dark:text-gray-400">
+                          {comment.time}
+                        </span>
+                      </div>
+                      <p className="text-gray-700 dark:text-gray-300 text-sm">
+                        {comment.text}
+                      </p>
+                    </div>
+                  )) : (
+                    <p className="text-gray-500 dark:text-gray-400 text-sm italic text-center py-8">
+                      No comments yet. Be the first to encourage with a comment!
+                    </p>
+                  )}
+                </div>
+                
+                {/* Add Comment Button */}
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-600">
+                  <Button 
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
+                    onClick={() => alert('Comment feature coming soon! This will allow users to add encouraging comments.')}
+                  >
+                    Add Encouraging Comment
+                  </Button>
                 </div>
               </div>
             </>
