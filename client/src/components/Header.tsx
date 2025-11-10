@@ -1,6 +1,6 @@
 import { useTheme } from "./ThemeProvider";
 import { useLanguage } from "./LanguageProvider";
-import { Cross, Sun, Moon, Menu } from "lucide-react";
+import { Cross, Sun, Moon, Menu, ChevronDown } from "lucide-react";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -46,8 +46,9 @@ export default function Header() {
           {/* Navigation */}
           <nav className="hidden md:flex space-x-8">
             <div className="relative group">
-              <span className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer">
-                Faith Activities ▼
+              <span className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer inline-flex items-center">
+                Faith Activities
+                <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
               </span>
               <div className="absolute top-full left-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <div className="py-2">
@@ -55,52 +56,53 @@ export default function Header() {
                     Spiritual Growth
                   </div>
                   <Link href="/worship" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                    🎵 Worship
+                    Worship
                   </Link>
                   <Link href="/reading" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                    📖 Reading
+                    Reading
                   </Link>
                   <Link href="/meditation" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                    🧘 Meditation
+                    Meditation
                   </Link>
                   <div className="border-t border-gray-200 dark:border-gray-600 my-1"></div>
                   <div className="px-4 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
                     Community
                   </div>
                   <Link href="/games" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                    🎮 Games
+                    Games
                   </Link>
                   <Link href="/testimonies" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                    💝 Testimonies
+                    Testimonies
                   </Link>
                   <Link href="/prayers" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                    🙏 Prayers
+                    Prayers
                   </Link>
                 </div>
               </div>
             </div>
             <div className="relative group">
-              <span className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer">
-                Along Activities ▼
+              <span className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer inline-flex items-center">
+                Along Activities
+                <ChevronDown className="ml-1 h-4 w-4 transition-transform duration-200 group-hover:rotate-180" />
               </span>
               <div className="absolute top-full left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg border border-gray-200 dark:border-gray-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                 <Link href="/testimony-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                  💝 Testimony Along
+                  Testimony Along
                 </Link>
                 <Link href="/pray-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                  🙏 Pray Along
+                  Pray Along
                 </Link>
                 <Link href="/sing-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                  🎵 Sing Along
+                  Sing Along
                 </Link>
                 <Link href="/read-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                  📖 Read Along
+                  Read Along
                 </Link>
                 <Link href="/meditate-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                  🧘 Meditate Along
+                  Meditate Along
                 </Link>
                 <Link href="/game-along" className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
-                  🎮 Game Along
+                  Game Along
                 </Link>
               </div>
             </div>
@@ -148,23 +150,23 @@ export default function Header() {
                     <div className="space-y-1">
                       <p className="text-xs text-gray-400 dark:text-gray-500 px-2 mb-1">Spiritual Growth</p>
                       <Link href="/worship" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        🎵 Worship
+                        Worship
                       </Link>
                       <Link href="/reading" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        📖 Reading
+                        Reading
                       </Link>
                       <Link href="/meditation" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        🧘 Meditation
+                        Meditation
                       </Link>
                       <p className="text-xs text-gray-400 dark:text-gray-500 px-2 mb-1 mt-3">Community</p>
                       <Link href="/games" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        🎮 Games
+                        Games
                       </Link>
                       <Link href="/testimonies" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        💝 Testimonies
+                        Testimonies
                       </Link>
                       <Link href="/prayers" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        🙏 Prayers
+                        Prayers
                       </Link>
                     </div>
                   </div>
@@ -173,28 +175,28 @@ export default function Header() {
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-3 uppercase tracking-wide">Along Activities</p>
                     <div className="space-y-1">
                       <Link href="/testimony-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        💝 Testimony Along
+                        Testimony Along
                       </Link>
                       <Link href="/pray-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        🙏 Pray Along
+                        Pray Along
                       </Link>
                       <Link href="/sing-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        🎵 Sing Along
+                        Sing Along
                       </Link>
                       <Link href="/read-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        📖 Read Along
+                        Read Along
                       </Link>
                       <Link href="/meditate-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        🧘 Meditate Along
+                        Meditate Along
                       </Link>
                       <Link href="/game-along" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 px-2 block text-sm">
-                        🎮 Game Along
+                        Game Along
                       </Link>
                     </div>
                   </div>
                   
                   <Link href="/donate" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors py-2 font-medium">
-                    💖 Donate
+                    Donate
                   </Link>
                 </nav>
               </SheetContent>
