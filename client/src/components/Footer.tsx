@@ -23,13 +23,13 @@ export default function Footer() {
                     </linearGradient>
                   </defs>
                   <circle cx="20" cy="20" r="18" fill="url(#footerLogoGradient)" stroke="currentColor" strokeWidth="2" />
-                  <text x="20" y="16" textAnchor="middle" className="fill-gray-900 text-xs font-bold">HU-JA</text>
-                  <text x="20" y="26" textAnchor="middle" className="fill-gray-900 text-xs font-bold">MBO</text>
+                  <text x="20" y="16" textAnchor="middle" className="fill-gray-900 text-xs font-bold">BFC</text>
+                  <text x="20" y="26" textAnchor="middle" className="fill-gray-900 text-xs font-bold">.COM</text>
                 </svg>
               </div>
               <div>
-                <h3 className="text-xl font-bold">HU-JAMBO</h3>
-                <p className="text-sm text-gray-400">www.hu-jambo.com</p>
+                <h3 className="text-xl font-bold">Biblicalfinancialcourses.com</h3>
+                <p className="text-sm text-gray-400">www.biblicalfinancialcourses.com</p>
               </div>
             </div>
             <p className="text-gray-300 text-sm mb-4">
@@ -125,7 +125,7 @@ export default function Footer() {
             <div className="space-y-3 text-sm">
               <div className="flex items-center">
                 <Mail className="h-4 w-4 mr-3 text-gray-400" />
-                <span className="text-gray-300">info@hu-jambo.com</span>
+                <span className="text-gray-300">info@biblicalfinancialcourses.com</span>
               </div>
               <div className="flex items-center">
                 <Phone className="h-4 w-4 mr-3 text-gray-400" />
@@ -159,7 +159,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="flex items-center text-sm text-gray-400 mb-4 md:mb-0">
               <Heart className="h-4 w-4 mr-2 text-red-500" />
-              <span>© 2025 Hu-jambo. Made with love for the faith community.</span>
+              <span>© 2025 Biblicalfinancialcourses.com. Made with love for the faith community.</span>
             </div>
             <div className="flex space-x-6 text-sm">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">

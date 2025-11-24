@@ -27,16 +27,16 @@ export default function Header() {
                       </linearGradient>
                     </defs>
                     <circle cx="20" cy="20" r="18" fill="url(#logoGradient)" stroke="currentColor" strokeWidth="2" />
-                    <text x="20" y="16" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">HU-JA</text>
-                    <text x="20" y="26" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">MBO</text>
+                    <text x="20" y="16" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">BFC</text>
+                    <text x="20" y="26" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">.COM</text>
                   </svg>
                 </div>
                 <div className="flex flex-col">
                   <span className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white leading-tight">
-                    HU-JAMBO
+                    Biblicalfinancialcourses.com
                   </span>
                   <span className="text-xs text-gray-600 dark:text-gray-400 leading-tight hidden sm:block">
-                    www.hu-jambo.com
+                    www.biblicalfinancialcourses.com
                   </span>
                 </div>
               </Link>
@@ -131,16 +131,16 @@ export default function Header() {
                         </linearGradient>
                       </defs>
                       <circle cx="20" cy="20" r="18" fill="url(#logoGradientMobile)" stroke="currentColor" strokeWidth="2" />
-                      <text x="20" y="16" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">HU-JA</text>
-                      <text x="20" y="26" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">MBO</text>
+                      <text x="20" y="16" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">BFC</text>
+                      <text x="20" y="26" textAnchor="middle" className="fill-white dark:fill-gray-900 text-xs font-bold">.COM</text>
                     </svg>
                   </div>
                   <div className="flex flex-col">
                     <span className="text-lg font-bold text-gray-900 dark:text-white leading-tight">
-                      HU-JAMBO
+                      Biblicalfinancialcourses.com
                     </span>
                     <span className="text-xs text-gray-600 dark:text-gray-400 leading-tight">
-                      www.hu-jambo.com
+                      www.biblicalfinancialcourses.com
                     </span>
                   </div>
                 </div>

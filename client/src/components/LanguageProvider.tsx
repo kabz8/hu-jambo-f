@@ -10,7 +10,7 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   en: {
-    "site.title": "Hu-jambo",
+    "site.title": "Biblicalfinancialcourses.com",
     "site.tagline": "Community of Faith & Fellowship",
     "hero.title": "Walk Together in Faith",
     "hero.description": "God wants to use us to help each other on our faith journey. Ready to testimony along, pray along, sing along, read along, meditate along and game along.",
@@ -36,7 +36,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.title": "Contact Us",
   },
   es: {
-    "site.title": "Hu-jambo",
+    "site.title": "Biblicalfinancialcourses.com",
     "site.tagline": "Comunidad de Fe y Compañerismo",
     "hero.title": "Caminemos Juntos en Fe",
     "hero.description": "Dios quiere usarnos para ayudarnos mutuamente en nuestro viaje de fe. Listos para testificar juntos, orar juntos, cantar juntos, leer juntos, meditar juntos y jugar juntos.",
@@ -62,7 +62,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.title": "Contáctanos",
   },
   fr: {
-    "site.title": "Hu-jambo",
+    "site.title": "Biblicalfinancialcourses.com",
     "site.tagline": "Communauté de Foi et de Fraternité",
     "hero.title": "Marchons Ensemble dans la Foi",
     "hero.description": "Dieu veut nous utiliser pour nous aider mutuellement dans notre parcours de foi. Prêts à témoigner ensemble, prier ensemble, chanter ensemble, lire ensemble, méditer ensemble et jouer ensemble.",
@@ -88,7 +88,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.title": "Contactez-nous",
   },
   sw: {
-    "site.title": "Hu-jambo",
+    "site.title": "Biblicalfinancialcourses.com",
     "site.tagline": "Jumuiya ya Imani na Urafiki",
     "hero.title": "Tuwende Pamoja kwa Imani",
     "hero.description": "Mungu anataka kutumia sisi kuwasaidia kila mmoja katika safari yetu ya imani. Tayari kushuhudia pamoja, kuomba pamoja, kuimba pamoja, kusoma pamoja, kutafakari pamoja na kucheza pamoja.",
@@ -114,7 +114,7 @@ const translations: Record<Language, Record<string, string>> = {
     "contact.title": "Wasiliana Nasi",
   },
   pt: {
-    "site.title": "Hu-jambo",
+    "site.title": "Biblicalfinancialcourses.com",
     "site.tagline": "Comunidade de Fé e Companheirismo",
     "hero.title": "Caminhemos Juntos na Fé",
     "hero.description": "Deus quer nos usar para nos ajudarmos mutuamente em nossa jornada de fé. Prontos para testemunhar juntos, orar juntos, cantar juntos, ler juntos, meditar juntos e jogar juntos.",
