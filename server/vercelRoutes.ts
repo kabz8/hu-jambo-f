@@ -4,6 +4,7 @@ import { setupAuth, isAuthenticated } from "./vercelAuth";
 import { insertTestimonySchema, insertPrayerRequestSchema, insertNewsletterSubscriptionSchema, insertDonationSchema } from "@shared/schema";
 import Stripe from "stripe";
 import { z } from "zod";
+import nodemailer from "nodemailer";
 
 // Initialize Stripe
 const stripe = process.env.STRIPE_SECRET_KEY 
@@ -11,6 +12,54 @@ const stripe = process.env.STRIPE_SECRET_KEY
   : null;
 
 export async function registerRoutes(app: Express) {
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpPort = process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT, 10) : undefined;
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+  const smtpFrom = process.env.SMTP_FROM || "info@biblicalfinancialcourses.com";
+  const testimonyInbox = "info@biblicalfinancialcourses.com";
+
+  const mailer =
+    smtpHost && smtpPort
+      ? nodemailer.createTransport({
+          host: smtpHost,
+          port: smtpPort,
+          secure: smtpPort === 465,
+          auth: smtpUser && smtpPass ? { user: smtpUser, pass: smtpPass } : undefined,
+        })
+      : null;
+
+  async function notifyTestimony(data: any) {
+    if (!mailer) {
+      console.warn("SMTP not configured; skipping testimony notification email.");
+      return;
+    }
+
+    try {
+      const lines = [
+        `New testimony submitted`,
+        ``,
+        `Name: ${data.firstName}`,
+        `Email: ${data.email || "N/A"}`,
+        `Phone: ${data.phoneNumber || "N/A"}`,
+        `Category: ${data.category}`,
+        `Title: ${data.title}`,
+        ``,
+        `Content:`,
+        data.content,
+      ].join("\n");
+
+      await mailer.sendMail({
+        from: smtpFrom,
+        to: testimonyInbox,
+        subject: `New testimony: ${data.title}`,
+        text: lines,
+      });
+    } catch (err) {
+      console.error("Failed to send testimony email:", err);
+    }
+  }
+
   // Auth middleware
   await setupAuth(app);
 
@@ -57,6 +106,7 @@ export async function registerRoutes(app: Express) {
       const testimonyData = insertTestimonySchema.parse({ ...req.body, userId });
       
       const testimony = await storage.createTestimony(testimonyData);
+      notifyTestimony(testimonyData);
       res.status(201).json(testimony);
     } catch (error) {
       console.error("Error creating testimony:", error);
