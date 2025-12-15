@@ -162,11 +162,11 @@ export default function Donate() {
 
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    <div className="min-h-screen bg-background/80 dark:bg-[#050403] transition-colors duration-300">
       <Header />
       
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-green-800 via-green-600 to-blue-600 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 text-white py-12">
+      <section className="hero-gradient text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <Link href="/">
