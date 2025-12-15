@@ -45,47 +45,49 @@ export default function Home() {
       <Header />
       
       {/* Welcome Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-900 dark:via-blue-900 dark:to-purple-900 overflow-hidden">
-        <div className="absolute inset-0 bg-pattern"></div>
+      <section className="relative hero-gradient text-white overflow-hidden">
+        <div className="absolute inset-0 bg-pattern opacity-20"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <div className="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-700 dark:text-blue-300 text-sm font-medium mb-6">
-                <Crown className="w-4 h-4 mr-2" />
-                Member Dashboard
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-                Welcome back, <span className="text-blue-600 dark:text-blue-400">{user?.firstName || "Friend"}</span>!
-              </h1>
-              <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
-                Continue your spiritual journey with personalized activities and community engagement
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white font-semibold">
-                  <Link href="/prayers">
-                    Start Prayer Time
-                    <ArrowRight className="w-4 h-4 ml-2" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" className="font-semibold">
-                  <Link href="/reading">Daily Reading</Link>
-                </Button>
-              </div>
-            </div>
-            <div className="lg:text-right">
-              <div className="inline-block bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg">
-                <div className="text-center">
-                  <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">7</div>
-                  <div className="text-sm text-gray-600 dark:text-gray-300">Days active</div>
+          <div className="bg-white/5 border border-white/10 rounded-[32px] p-8 sm:p-12 backdrop-blur-[2px] shadow-[0_25px_60px_rgba(0,0,0,0.35)]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div className="space-y-4">
+                <div className="inline-flex items-center px-4 py-2 bg-white/10 border border-white/20 rounded-full text-sm font-semibold">
+                  <Crown className="w-4 h-4 mr-2" />
+                  Member Dashboard
                 </div>
-                <div className="grid grid-cols-2 gap-4 mt-4">
+                <h1 className="text-4xl md:text-5xl font-black leading-tight">
+                  Welcome back, <span className="text-white/80">{user?.firstName || "Friend"}</span>!
+                </h1>
+                <p className="text-lg text-white/85 max-w-2xl">
+                  Continue your spiritual journey with personalized activities and community engagement
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button asChild className="bg-[#c89b68] text-[#0f0b09] hover:bg-[#b4834f] font-semibold">
+                    <Link href="/prayers">
+                      Start Prayer Time
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
+                  <Button asChild variant="outline" className="text-white border-white/70 hover:bg-white hover:text-[#2b1a12] font-semibold">
+                    <Link href="/reading">Daily Reading</Link>
+                  </Button>
+                </div>
+              </div>
+              <div className="lg:text-right">
+                <div className="inline-block bg-white/10 border border-white/15 rounded-2xl p-6 shadow-lg text-white">
                   <div className="text-center">
-                    <div className="text-xl font-semibold text-gray-900 dark:text-white">12</div>
-                    <div className="text-xs text-gray-500">Prayers</div>
+                    <div className="text-3xl font-extrabold">7</div>
+                    <div className="text-sm text-white/80">Days active</div>
                   </div>
-                  <div className="text-center">
-                    <div className="text-xl font-semibold text-gray-900 dark:text-white">5</div>
-                    <div className="text-xs text-gray-500">Testimonies</div>
+                  <div className="grid grid-cols-2 gap-4 mt-4">
+                    <div className="text-center">
+                      <div className="text-xl font-semibold">12</div>
+                      <div className="text-xs text-white/70">Prayers</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-xl font-semibold">5</div>
+                      <div className="text-xs text-white/70">Testimonies</div>
+                    </div>
                   </div>
                 </div>
               </div>
