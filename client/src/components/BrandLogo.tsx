@@ -1,6 +1,4 @@
 import { cn } from "@/lib/utils";
-import logoFull from "@/assets/logo-full.svg";
-import logoMark from "@/assets/logo-mark.svg";
 
 interface BrandLogoProps {
   className?: string;
@@ -17,7 +15,8 @@ export function BrandLogo({ className, withText = true, textColor, size = "md" }
   const sizeClass =
     size === "lg" ? "h-16" : size === "sm" ? "h-10" : "h-12";
 
-  const src = withText ? logoFull : logoMark;
+  // Use the exact uploaded logo from the public folder to respect branding.
+  const src = "/logo.png";
 
   return (
     <div className={cn("flex items-center gap-3", className)}>
@@ -27,14 +26,6 @@ export function BrandLogo({ className, withText = true, textColor, size = "md" }
         className={cn(sizeClass, "w-auto select-none")}
         draggable={false}
       />
-      {!withText && (
-        <div className="leading-tight">
-          <div className={cn("text-lg font-semibold tracking-tight", textColor ?? "text-white")}>
-            Biblical Financial
-          </div>
-          <div className="text-xs uppercase tracking-[0.3em] text-[#a47551]">Courses</div>
-        </div>
-      )}
     </div>
   );
 }
