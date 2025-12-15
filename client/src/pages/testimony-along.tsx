@@ -16,7 +16,7 @@ import {
   Sparkles,
   Megaphone,
   ShieldCheck,
-  Bible,
+  BookOpen,
 } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import TestimonyForm from "@/components/TestimonyForm";
@@ -294,7 +294,7 @@ export default function TestimonyAlong() {
               },
               {
                 title: "Answered Prayers",
-                icon: <Bible className="w-6 h-6" />,
+                icon: <BookOpen className="w-6 h-6" />,
                 count: "41 testimonies",
                 color: "bg-teal-500"
               }
