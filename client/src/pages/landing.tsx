@@ -1,60 +1,120 @@
 import { Link } from "wouter";
-import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   ArrowRight,
-  Users,
-  Heart,
-  Sparkles,
-  Crown,
-  Star,
-  Music,
+  BarChart3,
   BookOpen,
-  HandHeart,
-  MoonStar,
-  Share2,
-  Gamepad2,
+  Briefcase,
+  CheckCircle2,
+  HeartHandshake,
+  Layers,
+  ShieldCheck,
+  Sparkles,
+  Target,
+  Wallet,
 } from "lucide-react";
-import heroImage from "@assets/7323_1752152530250.jpg";
+
+const featureTracks = [
+  {
+    title: "Biblical Money Foundations",
+    description: "Build budgets, crush debt, and align spending with Scripture.",
+    icon: <Wallet className="w-6 h-6" />,
+    link: "/reading",
+  },
+  {
+    title: "Generosity & Legacy",
+    description: "Create a giving rhythm, plan for legacy, and bless your community.",
+    icon: <HeartHandshake className="w-6 h-6" />,
+    link: "/prayers",
+  },
+  {
+    title: "Career & Calling",
+    description: "Discern your calling, negotiate well, and grow income with integrity.",
+    icon: <Briefcase className="w-6 h-6" />,
+    link: "/worship",
+  },
+];
+
+const proofPoints = [
+  { label: "Learners guided", value: "18,400+" },
+  { label: "Lessons & tools", value: "120+" },
+  { label: "Countries reached", value: "42" },
+  { label: "Group cohorts", value: "260" },
+];
+
+const pillars = [
+  {
+    title: "Bible-first learning",
+    description: "Scripture anchors every module with practical next steps.",
+    icon: <BookOpen className="w-5 h-5" />,
+  },
+  {
+    title: "Actionable tools",
+    description: "Budgets, giving plans, and checklists you can use today.",
+    icon: <CheckCircle2 className="w-5 h-5" />,
+  },
+  {
+    title: "Community support",
+    description: "Cohorts, testimonies, and prayer keep you encouraged.",
+    icon: <ShieldCheck className="w-5 h-5" />,
+  },
+  {
+    title: "Lasting impact",
+    description: "Design a legacy that blesses family, church, and neighbors.",
+    icon: <Target className="w-5 h-5" />,
+  },
+];
+
+const programHighlights = [
+  {
+    title: "12-week Core Track",
+    body: "Weekly lessons, Scripture reflections, and live Q&A to reset your finances around God's design.",
+  },
+  {
+    title: "Giving & Stewardship Labs",
+    body: "Guided exercises to build a sustainable generosity plan with your household or small group.",
+  },
+  {
+    title: "Career & Calling Sprint",
+    body: "Clarify calling, upgrade your skills, and negotiate fairly—without compromising integrity.",
+  },
+];
 
 export default function Landing() {
-  const { t } = useLanguage();
-
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="relative hero-gradient text-white overflow-hidden">
-        <div className="absolute inset-0 bg-pattern opacity-20"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-28">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div className="space-y-6 text-center lg:text-left">
-              <div className="inline-flex items-center px-4 py-2 bg-white/10 border border-white/15 rounded-full text-sm font-medium">
-                <Sparkles className="w-4 h-4 mr-2" />
-                Financial discipleship, rooted in the Word
+
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0f0b09] via-[#2b1a12] to-[#5c432f] text-white">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.08),transparent_45%)]" />
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 flex flex-col gap-10">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+            <div className="space-y-6 max-w-3xl">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/10 text-sm font-semibold">
+                <Sparkles className="w-4 h-4" />
+                Biblical Financial Courses
               </div>
-              <div>
-                <p className="text-sm uppercase tracking-[0.3em] text-white/70 mb-2">Biblical Financial Courses</p>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight drop-shadow">
-                  Steward your finances
-                  <span className="block text-[#f5efe8]">God's way</span>
+              <div className="space-y-3">
+                <p className="text-sm uppercase tracking-[0.28em] text-white/70">Stewardship · Generosity · Legacy</p>
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black leading-tight">
+                  Master your money<br />without losing your ministry
                 </h1>
               </div>
-              <p className="text-lg sm:text-xl text-white/85 max-w-2xl mx-auto lg:mx-0">
-                Learn practical, faith-driven steps to budget wisely, give generously, and build a lasting legacy.
+              <p className="text-lg sm:text-xl text-white/85 max-w-2xl">
+                A complete discipleship path for finances—Bible-first lessons, ready-to-use tools, and community support so you can budget wisely, give boldly, and build a lasting legacy.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+              <div className="flex flex-col sm:flex-row gap-3">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-[#a47551] hover:bg-[#8a5f42] text-white font-semibold text-lg px-6 sm:px-8 py-3 shadow-lg border border-white/20"
+                  className="bg-[#c89b68] text-[#0f0b09] hover:bg-[#b4834f] font-semibold text-lg px-7 py-3 shadow-lg shadow-black/20"
                 >
                   <Link href="/donate">
-                    Begin Your Plan
+                    Start the core track
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
@@ -62,123 +122,79 @@ export default function Landing() {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="font-semibold text-lg px-6 sm:px-8 py-3 border-2 border-white text-white hover:bg-white hover:text-[#0b0b0b]"
+                  className="border-2 border-white/70 text-white hover:bg-white hover:text-[#2b1a12] font-semibold text-lg px-7 py-3"
                 >
-                  <Link href="/reading">View Course Tracks</Link>
+                  <Link href="/reading">Explore lessons</Link>
                 </Button>
               </div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-left">
-                {[
-                  { label: "Bible-first lessons", value: "12+" },
-                  { label: "Stewardship guides", value: "40+" },
-                  { label: "Community members", value: "10k+" },
-                  { label: "Countries reached", value: "100+" },
-                ].map((item) => (
-                  <div key={item.label} className="bg-white/5 border border-white/10 rounded-xl p-4">
-                    <div className="text-2xl font-bold">{item.value}</div>
-                    <div className="text-sm text-white/70">{item.label}</div>
-                  </div>
-                ))}
-              </div>
             </div>
-
-            <div className="relative">
-              <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-[#1a120c] via-[#a47551] to-[#1a120c] rounded-3xl p-2 shadow-2xl border border-white/15">
-                <img
-                  src={heroImage}
-                  alt="Person on spiritual journey path with mountains in background"
-                  className="w-full h-full object-cover rounded-3xl"
-                />
-              </div>
-              <div className="absolute -top-4 -left-6 sm:-top-6 sm:-left-8 w-20 h-20 sm:w-24 sm:h-24 bg-white/10 border border-white/20 rounded-full flex items-center justify-center shadow-lg">
-                <Crown className="w-10 h-10 text-white" />
-              </div>
-              <div className="absolute -bottom-4 -right-6 sm:-bottom-6 sm:-right-8 w-16 h-16 sm:w-20 sm:h-20 bg-white/10 border border-white/20 rounded-full flex items-center justify-center shadow-lg">
-                <Heart className="w-8 h-8 text-white" />
-              </div>
+            <div className="grid grid-cols-2 gap-4 bg-white/5 border border-white/10 rounded-2xl p-4 w-full max-w-md">
+              {proofPoints.map((item) => (
+                <div key={item.label} className="p-3 rounded-xl bg-white/5 border border-white/5">
+                  <div className="text-2xl font-extrabold">{item.value}</div>
+                  <div className="text-sm text-white/70">{item.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <p className="text-sm uppercase tracking-[0.2em] text-[#a47551] mb-3">Learn · Practice · Share</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-              A clear path to biblical stewardship
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Six focused tracks blend Scripture, practical exercises, and community to help you steward every resource with purpose.
+      {/* Pillars */}
+      <section className="py-16 bg-white dark:bg-[#0f0b09]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-10">
+            <div className="max-w-xl space-y-4">
+              <p className="text-sm uppercase tracking-[0.2em] text-[#9c7554]">What makes us different</p>
+              <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">
+                A simple, repeatable system for faithful finances
+              </h2>
+              <p className="text-lg text-gray-700 dark:text-gray-200">
+                We blend Scripture, coaching, and practical tools so you move from knowing to doing—without overwhelm.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 flex-1">
+              {pillars.map((pillar) => (
+                <Card key={pillar.title} className="border border-[#e8dacf] dark:border-[#24170f] shadow-sm">
+                  <CardContent className="p-5 space-y-3">
+                    <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#f3e6da] text-[#9c7554]">
+                      {pillar.icon}
+                    </div>
+                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{pillar.title}</h3>
+                    <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{pillar.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Tracks */}
+      <section className="py-16 bg-[#f8efe7] dark:bg-[#14100c]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+          <div className="text-center space-y-3">
+            <p className="text-sm uppercase tracking-[0.2em] text-[#9c7554]">Start with the core, add on as you grow</p>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Guided tracks, real outcomes</h2>
+            <p className="text-lg text-gray-700 dark:text-gray-200 max-w-3xl mx-auto">
+              Each track pairs Bible-first teaching with templates, budgets, and exercises you can put to work immediately.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            {[
-              {
-                icon: <Music className="w-6 h-6" />,
-                title: "Worship Together",
-                description: "Shape your heart toward generosity through worship and reflection.",
-                link: "/worship",
-                color: "from-[#a47551] to-[#c1916a]",
-              },
-              {
-                icon: <BookOpen className="w-6 h-6" />,
-                title: "Study Scripture",
-                description: "Follow guided readings and devotions on stewardship, calling, and contentment.",
-                link: "/reading",
-                color: "from-[#8a5f42] to-[#a47551]",
-              },
-              {
-                icon: <HandHeart className="w-6 h-6" />,
-                title: "Pray & Connect",
-                description: "Share and respond to prayer needs as you walk this financial journey together.",
-                link: "/prayers",
-                color: "from-[#c1916a] to-[#a47551]",
-              },
-              {
-                icon: <MoonStar className="w-6 h-6" />,
-                title: "Meditate & Reflect",
-                description: "Build habits of quiet reflection that align your plans with God's wisdom.",
-                link: "/meditation",
-                color: "from-[#704b34] to-[#a47551]",
-              },
-              {
-                icon: <Share2 className="w-6 h-6" />,
-                title: "Share Testimonies",
-                description: "Encourage others with stories of God's provision and faithfulness.",
-                link: "/testimonies",
-                color: "from-[#a47551] to-[#8a5f42]",
-              },
-              {
-                icon: <Gamepad2 className="w-6 h-6" />,
-                title: "Learn Through Play",
-                description: "Engage interactive lessons that make stewardship principles stick.",
-                link: "/games",
-                color: "from-[#c1916a] to-[#a47551]",
-              },
-            ].map((feature, index) => (
-              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden">
-                <CardContent className="p-0">
-                  <div className={`h-2 bg-gradient-to-r ${feature.color}`}></div>
-                  <div className="p-8 space-y-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#a47551]/10 text-[#a47551]">
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-[#a47551] transition-colors">
-                      {feature.title}
-                    </h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      {feature.description}
-                    </p>
-                    <Button asChild variant="outline" className="group-hover:bg-[#f3e6da] group-hover:border-[#e8dacf] transition-colors">
-                      <Link href={feature.link}>
-                        Explore
-                        <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                      </Link>
-                    </Button>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {featureTracks.map((track) => (
+              <Card key={track.title} className="h-full border border-[#e8dacf] dark:border-[#24170f] bg-white dark:bg-[#0f0b09]">
+                <CardContent className="p-6 space-y-4">
+                  <div className="inline-flex items-center justify-center w-11 h-11 rounded-full bg-[#f3e6da] text-[#9c7554]">
+                    {track.icon}
                   </div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{track.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{track.description}</p>
+                  <Button asChild variant="outline" className="justify-start border-[#d9c5b3] text-[#5c432f] dark:text-white hover:bg-[#f3e6da] dark:hover:bg-[#1c140e]">
+                    <Link href={track.link}>
+                      Explore track
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </Link>
+                  </Button>
                 </CardContent>
               </Card>
             ))}
@@ -186,75 +202,68 @@ export default function Landing() {
         </div>
       </section>
 
-      {/* Community Stats */}
-      <section className="py-20 bg-[#f7f0e7] dark:bg-gray-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
-              Growing Together in Faith
-            </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300">
-              Join thousands of believers in their spiritual journey
+      {/* Program Highlights */}
+      <section className="py-16 bg-white dark:bg-[#0f0b09]">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-5 gap-8">
+          <div className="lg:col-span-2 space-y-4">
+            <p className="text-sm uppercase tracking-[0.2em] text-[#9c7554]">Programs</p>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Choose your next step</h2>
+            <p className="text-lg text-gray-700 dark:text-gray-200">
+              Whether you’re resetting your budget, expanding generosity, or aligning career with calling, there’s a path built for you.
             </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              { number: "10,000+", label: "Community Members", icon: <Users className="w-8 h-8" /> },
-              { number: "50,000+", label: "Prayers Shared", icon: <Heart className="w-8 h-8" /> },
-              { number: "5,000+", label: "Testimonies", icon: <Star className="w-8 h-8" /> },
-              { number: "100+", label: "Countries", icon: <Sparkles className="w-8 h-8" /> }
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-[#a47551]/15 dark:bg-blue-900 rounded-full text-[#a47551] dark:text-blue-400 mb-4">
-                  {stat.icon}
-                </div>
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 dark:text-gray-300 font-medium">
-                  {stat.label}
-                </div>
+            <div className="flex flex-wrap gap-3">
+              <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#f3e6da] text-[#5c432f] text-sm font-semibold">
+                <Layers className="w-4 h-4" />
+                Cohort-friendly
               </div>
+              <div className="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-[#f3e6da] text-[#5c432f] text-sm font-semibold">
+                <BarChart3 className="w-4 h-4" />
+                Measurable steps
+              </div>
+            </div>
+          </div>
+          <div className="lg:col-span-3 grid grid-cols-1 gap-4">
+            {programHighlights.map((item) => (
+              <Card key={item.title} className="border border-[#e8dacf] dark:border-[#24170f]">
+                <CardContent className="p-5 space-y-2">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">{item.body}</p>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-br from-[#a47551] to-[#8a5f42] rounded-3xl p-12 text-white relative overflow-hidden">
-            <div className="absolute inset-0 bg-pattern-light opacity-30"></div>
-            <div className="relative">
-              <Crown className="w-16 h-16 mx-auto mb-6 text-white/80" />
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">
-                Begin Your Faith Journey Today
-              </h2>
-              <p className="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-                Join our welcoming community and discover the joy of growing in faith together. Your spiritual journey starts here.
+      {/* CTA */}
+      <section className="py-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-3xl border border-[#e8dacf] dark:border-[#24170f] bg-gradient-to-r from-[#5c432f] via-[#9c7554] to-[#c89b68] text-white p-10 sm:p-12">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(255,255,255,0.18),transparent_35%)]" />
+            <div className="relative space-y-4">
+              <p className="text-sm uppercase tracking-[0.24em] text-white/80">Begin today</p>
+              <h2 className="text-3xl md:text-4xl font-black">Design a faithful financial life that lasts</h2>
+              <p className="text-lg text-white/90 max-w-2xl">
+                Join thousands of believers budgeting, giving, and leading with peace. Your next faithful decision is one click away.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button 
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button
                   asChild
                   size="lg"
-                  className="bg-white text-[#a47551] hover:bg-gray-100 font-bold text-lg px-8 py-4"
+                  className="bg-white text-[#5c432f] hover:bg-[#f3e6da] font-semibold text-lg px-7 py-3"
                 >
-                  <Link href="/worship">
-                    Start Worshipping
+                  <Link href="/testimonies">
+                    See testimonies
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Link>
                 </Button>
-                <Button 
+                <Button
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-2 border-white text-white hover:bg-white hover:text-[#a47551] font-bold text-lg px-8 py-4"
+                  className="border-2 border-white text-white hover:bg-white hover:text-[#5c432f] font-semibold text-lg px-7 py-3"
                 >
-                  <Link href="/donate">
-                    Support Our Mission
-                    <Heart className="w-5 h-5 ml-2" />
-                  </Link>
+                  <Link href="/donate">Support the mission</Link>
                 </Button>
               </div>
             </div>
