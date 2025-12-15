@@ -104,15 +104,15 @@ export default function Landing() {
       </section>
 
       {/* Features Section */}
-      <section className="relative py-20 bg-[#fef9f4]">
+      <section className="relative py-20 bg-[#fef9f4] text-[#2b1a12]">
         <div className="absolute inset-0 pointer-events-none opacity-60 bg-[radial-gradient(circle_at_top,rgba(152,116,85,0.12),transparent_45%)]"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <p className="text-sm uppercase tracking-[0.2em] text-[#a47551] mb-3">Learn · Practice · Share</p>
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#2b1a12] mb-4">
               A clear path to biblical stewardship
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-[#4a3a2c] max-w-3xl mx-auto">
               Six focused tracks blend Scripture, practical exercises, and community to help you steward every resource with purpose.
             </p>
           </div>
@@ -162,20 +162,20 @@ export default function Landing() {
                 color: "from-[#c1916a] to-[#a47551]",
               },
             ].map((feature, index) => (
-              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 border-0 overflow-hidden">
+              <Card key={index} className="group hover:shadow-2xl transition-all duration-300 border border-[#e3d2c4] bg-white text-[#2b1a12] overflow-hidden">
                 <CardContent className="p-0">
                   <div className={`h-2 bg-gradient-to-r ${feature.color}`}></div>
                   <div className="p-8 space-y-4">
-                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#a47551]/10 text-[#a47551]">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#f0e5db] text-[#9c7554]">
                       {feature.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-[#a47551] transition-colors">
+                    <h3 className="text-xl font-bold text-[#2b1a12] group-hover:text-[#9c7554] transition-colors">
                       {feature.title}
                     </h3>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-[#4a3a2c] leading-relaxed">
                       {feature.description}
                     </p>
-                    <Button asChild variant="outline" className="group-hover:bg-[#f3e6da] group-hover:border-[#e8dacf] transition-colors">
+                    <Button asChild variant="outline" className="justify-start border-[#d9c5b3] text-[#5c432f] hover:bg-[#f3e6da]">
                       <Link href={feature.link}>
                         Explore
                         <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
