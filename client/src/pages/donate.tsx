@@ -10,7 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Heart, ArrowLeft, DollarSign, CreditCard } from "lucide-react";
+import { Heart, ArrowLeft, DollarSign, CreditCard, BookOpen, HeartHandshake, Sparkles } from "lucide-react";
 import { Link } from "wouter";
 import { isUnauthorizedError } from "@/lib/authUtils";
 
@@ -263,21 +263,27 @@ export default function Donate() {
               <CardContent>
                 <div className="grid md:grid-cols-3 gap-6 text-center">
                   <div>
-                    <div className="text-3xl mb-2">📖</div>
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#a47551]/10 text-[#a47551] mb-2">
+                      <BookOpen className="w-6 h-6" />
+                    </div>
                     <h3 className="font-semibold text-gray-900 dark:text-white">Scripture Resources</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                       Help us provide Bible study materials and devotionals
                     </p>
                   </div>
                   <div>
-                    <div className="text-3xl mb-2">🤝</div>
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#a47551]/10 text-[#a47551] mb-2">
+                      <HeartHandshake className="w-6 h-6" />
+                    </div>
                     <h3 className="font-semibold text-gray-900 dark:text-white">Community Support</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                       Support our prayer and testimony sharing platform
                     </p>
                   </div>
                   <div>
-                    <div className="text-3xl mb-2">🌟</div>
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#a47551]/10 text-[#a47551] mb-2">
+                      <Sparkles className="w-6 h-6" />
+                    </div>
                     <h3 className="font-semibold text-gray-900 dark:text-white">Outreach Programs</h3>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
                       Fund programs that reach more people with God's love

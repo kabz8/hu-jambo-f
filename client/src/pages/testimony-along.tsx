@@ -2,7 +2,22 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Heart, Users, Share2, Star, MessageCircle, Calendar } from "lucide-react";
+import {
+  Heart,
+  Users,
+  Share2,
+  Star,
+  MessageCircle,
+  Calendar,
+  Leaf,
+  HeartPulse,
+  HeartHandshake,
+  Coins,
+  Sparkles,
+  Megaphone,
+  ShieldCheck,
+  Bible,
+} from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import TestimonyForm from "@/components/TestimonyForm";
 import Header from "@/components/Header";
@@ -237,49 +252,49 @@ export default function TestimonyAlong() {
             {[
               {
                 title: "Personal Growth",
-                icon: "🌱",
+                icon: <Leaf className="w-6 h-6" />,
                 count: "45 testimonies",
                 color: "bg-green-500"
               },
               {
                 title: "Healing & Health",
-                icon: "🙏",
+                icon: <HeartPulse className="w-6 h-6" />,
                 count: "32 testimonies",
                 color: "bg-blue-500"
               },
               {
                 title: "Marriage & Family",
-                icon: "👨‍👩‍👧‍👦",
+                icon: <HeartHandshake className="w-6 h-6" />,
                 count: "28 testimonies",
                 color: "bg-pink-500"
               },
               {
                 title: "Financial Provision",
-                icon: "💝",
+                icon: <Coins className="w-6 h-6" />,
                 count: "23 testimonies",
                 color: "bg-yellow-500"
               },
               {
                 title: "Salvation Stories",
-                icon: "✨",
+                icon: <Sparkles className="w-6 h-6" />,
                 count: "67 testimonies",
                 color: "bg-purple-500"
               },
               {
                 title: "Ministry & Calling",
-                icon: "📢",
+                icon: <Megaphone className="w-6 h-6" />,
                 count: "19 testimonies",
                 color: "bg-orange-500"
               },
               {
                 title: "Overcoming Addiction",
-                icon: "🆓",
+                icon: <ShieldCheck className="w-6 h-6" />,
                 count: "15 testimonies",
                 color: "bg-red-500"
               },
               {
                 title: "Answered Prayers",
-                icon: "🙌",
+                icon: <Bible className="w-6 h-6" />,
                 count: "41 testimonies",
                 color: "bg-teal-500"
               }

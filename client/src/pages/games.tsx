@@ -1,6 +1,23 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Gamepad2, Star, Trophy, Users, Clock, Play } from "lucide-react";
+import {
+  Gamepad2,
+  Star,
+  Trophy,
+  Users,
+  Clock,
+  Play,
+  HelpCircle,
+  Search,
+  Palette,
+  Brain,
+  BookOpen,
+  Music,
+  Sparkles,
+  User,
+  Puzzle,
+  Map,
+} from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -123,63 +140,63 @@ export default function Games() {
               {
                 title: "Bible Puzzles",
                 description: "Jigsaw puzzles featuring Bible scenes and stories",
-                icon: "🧩",
+                icon: <Puzzle className="w-6 h-6" />,
                 games: "12 games",
                 color: "bg-blue-500"
               },
               {
                 title: "Scripture Quiz",
                 description: "Test your Bible knowledge with fun quizzes",
-                icon: "❓",
+                icon: <HelpCircle className="w-6 h-6" />,
                 games: "25 quizzes",
                 color: "bg-green-500"
               },
               {
                 title: "Word Search",
                 description: "Find Bible words and names in challenging puzzles",
-                icon: "🔍",
+                icon: <Search className="w-6 h-6" />,
                 games: "18 puzzles",
                 color: "bg-purple-500"
               },
               {
                 title: "Bible Coloring",
                 description: "Digital coloring pages of Bible stories",
-                icon: "🎨",
+                icon: <Palette className="w-6 h-6" />,
                 games: "30 pages",
                 color: "bg-pink-500"
               },
               {
                 title: "Memory Games",
                 description: "Match Bible verses, characters, and stories",
-                icon: "🧠",
+                icon: <Brain className="w-6 h-6" />,
                 games: "15 games",
                 color: "bg-orange-500"
               },
               {
                 title: "Story Adventures",
                 description: "Interactive Bible story experiences",
-                icon: "📖",
+                icon: <BookOpen className="w-6 h-6" />,
                 games: "8 stories",
                 color: "bg-teal-500"
               },
               {
                 title: "Music & Songs",
                 description: "Learn Bible songs and hymns through games",
-                icon: "🎵",
+                icon: <Music className="w-6 h-6" />,
                 games: "20 songs",
                 color: "bg-red-500"
               },
               {
                 title: "Character Builder",
                 description: "Games that teach Christian values and character",
-                icon: "⭐",
+                icon: <Sparkles className="w-6 h-6" />,
                 games: "10 games",
                 color: "bg-yellow-500"
               }
             ].map((category, index) => (
               <Card key={index} className="card-hover transition-all duration-300 hover:shadow-lg">
                 <CardContent className="p-6 text-center">
-                  <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl`}>
+                  <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4 text-white`}>
                     {category.icon}
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
@@ -249,8 +266,8 @@ export default function Games() {
               <Card key={index} className="card-hover transition-all duration-300 hover:shadow-lg">
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
-                    <div className="text-3xl mb-2">
-                      {index === 0 ? "👶" : index === 1 ? "🧒" : "👨‍🎓"}
+                    <div className="inline-flex items-center justify-center w-14 h-14 rounded-full bg-[#a47551]/15 text-[#a47551] mb-2">
+                      {index === 0 ? <User className="w-7 h-7" /> : index === 1 ? <Users className="w-7 h-7" /> : <Star className="w-7 h-7" />}
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1">
                       {ageGroup.title}
@@ -308,30 +325,32 @@ export default function Games() {
                   {
                     title: "Bible Scholar",
                     description: "Complete 10 Scripture quizzes",
-                    icon: "📚",
+                    icon: <BookOpen className="w-5 h-5" />,
                     progress: "7/10"
                   },
                   {
                     title: "Puzzle Master",
                     description: "Solve 15 Bible puzzles",
-                    icon: "🧩",
+                    icon: <Puzzle className="w-5 h-5" />,
                     progress: "12/15"
                   },
                   {
                     title: "Story Explorer",
                     description: "Finish 5 Bible adventures",
-                    icon: "🗺️",
+                    icon: <Map className="w-5 h-5" />,
                     progress: "3/5"
                   },
                   {
                     title: "Faith Champion",
                     description: "Play games for 30 days",
-                    icon: "🏆",
+                    icon: <Trophy className="w-5 h-5" />,
                     progress: "18/30"
                   }
                 ].map((achievement, index) => (
                   <div key={index} className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center">
-                    <div className="text-3xl mb-2">{achievement.icon}</div>
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#a47551]/15 text-[#a47551] mb-2">
+                      {achievement.icon}
+                    </div>
                     <h3 className="text-sm font-semibold text-gray-900 dark:text-white mb-1">
                       {achievement.title}
                     </h3>

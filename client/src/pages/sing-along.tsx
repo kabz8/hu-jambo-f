@@ -1,7 +1,20 @@
 import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Music, Play, Download, Heart, Mic, Users } from "lucide-react";
+import {
+  Music,
+  Play,
+  Download,
+  Heart,
+  Mic,
+  Users,
+  BookOpen,
+  Gift,
+  Sunrise,
+  Sparkles,
+  MoonStar,
+  Book,
+} from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -204,56 +217,56 @@ export default function SingAlong() {
             {[
               {
                 title: "Traditional Hymns",
-                icon: "📖",
+                icon: <BookOpen className="w-6 h-6" />,
                 count: "45 songs",
                 description: "Classic hymns that have blessed generations",
                 color: "bg-blue-500"
               },
               {
                 title: "Contemporary Worship",
-                icon: "🎵",
+                icon: <Music className="w-6 h-6" />,
                 count: "67 songs",
                 description: "Modern worship songs for today's church",
                 color: "bg-purple-500"
               },
               {
                 title: "Children's Songs",
-                icon: "👶",
+                icon: <Heart className="w-6 h-6" />,
                 count: "32 songs",
                 description: "Fun and educational songs for kids",
                 color: "bg-yellow-500"
               },
               {
                 title: "Christmas Carols",
-                icon: "🎄",
+                icon: <Gift className="w-6 h-6" />,
                 count: "28 songs",
                 description: "Celebrate the birth of Jesus",
                 color: "bg-green-500"
               },
               {
                 title: "Easter Songs",
-                icon: "🌅",
+                icon: <Sunrise className="w-6 h-6" />,
                 count: "19 songs",
                 description: "Celebrate the resurrection",
                 color: "bg-orange-500"
               },
               {
                 title: "Praise & Worship",
-                icon: "🙌",
+                icon: <Sparkles className="w-6 h-6" />,
                 count: "54 songs",
                 description: "High-energy songs of praise",
                 color: "bg-red-500"
               },
               {
                 title: "Contemplative",
-                icon: "🕊️",
+                icon: <MoonStar className="w-6 h-6" />,
                 count: "23 songs",
                 description: "Quiet songs for reflection",
                 color: "bg-teal-500"
               },
               {
                 title: "Scripture Songs",
-                icon: "📜",
+                icon: <Book className="w-6 h-6" />,
                 count: "31 songs",
                 description: "Songs based on Bible verses",
                 color: "bg-pink-500"
@@ -261,7 +274,7 @@ export default function SingAlong() {
             ].map((category, index) => (
               <Card key={index} className="card-hover transition-all duration-300 hover:shadow-lg">
                 <CardContent className="p-6 text-center">
-                  <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl`}>
+                  <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4 text-white`}>
                     {category.icon}
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">

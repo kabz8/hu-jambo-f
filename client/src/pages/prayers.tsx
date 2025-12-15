@@ -144,7 +144,7 @@ export default function Prayers() {
                           </div>
                           <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
                             <p className="text-sm text-gray-500 dark:text-gray-400 italic">
-                              🙏 Please join us in prayer for this request
+                              Please join us in prayer for this request
                             </p>
                           </div>
                         </CardContent>

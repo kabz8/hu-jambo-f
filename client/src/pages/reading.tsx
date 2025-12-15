@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Book, Calendar, Quote, Search, BookOpen, Star } from "lucide-react";
+import { Book, Calendar, Quote, Search, BookOpen, Star, Heart, Sparkles, HandHeart } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -259,24 +259,26 @@ export default function Reading() {
                 title: "Verses for Comfort",
                 description: "Scripture to bring peace during difficult times",
                 verses: "25 verses",
-                icon: "💙"
+                icon: <Heart className="w-6 h-6" />
               },
               {
                 title: "Promises of God",
                 description: "God's faithful promises throughout Scripture",
                 verses: "40 verses",
-                icon: "🌟"
+                icon: <Sparkles className="w-6 h-6" />
               },
               {
                 title: "Prayers of Jesus",
                 description: "Learn from how Jesus prayed",
                 verses: "15 passages",
-                icon: "🙏"
+                icon: <HandHeart className="w-6 h-6" />
               }
             ].map((collection, index) => (
               <Card key={index} className="card-hover transition-all duration-300 hover:shadow-lg text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl mb-4">{collection.icon}</div>
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#a47551]/10 text-[#a47551] mb-4">
+                    {collection.icon}
+                  </div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {collection.title}
                   </h3>

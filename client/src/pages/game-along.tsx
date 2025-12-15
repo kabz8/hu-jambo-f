@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Gamepad2, Users, Trophy, Star, Clock, Play } from "lucide-react";
+import { Gamepad2, Users, Trophy, Star, Clock, Play, BookOpen, Music, Map, Sparkles, Search, Leaf } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -294,7 +294,7 @@ export default function GameAlong() {
               },
               {
                 title: "Word Puzzles",
-                icon: "🔤",
+                icon: <Search className="w-6 h-6" />,
                 description: "Biblical word games and crosswords",
                 activeGames: "20 games",
                 averageTime: "8 min",
@@ -302,7 +302,7 @@ export default function GameAlong() {
               },
               {
                 title: "Story Adventures",
-                icon: "📖",
+                icon: <BookOpen className="w-6 h-6" />,
                 description: "Interactive Bible story experiences",
                 activeGames: "6 games",
                 averageTime: "25 min",
@@ -310,7 +310,7 @@ export default function GameAlong() {
               },
               {
                 title: "Music & Songs",
-                icon: "🎵",
+                icon: <Music className="w-6 h-6" />,
                 description: "Christian music and hymn games",
                 activeGames: "10 games",
                 averageTime: "12 min",
@@ -318,7 +318,7 @@ export default function GameAlong() {
               },
               {
                 title: "Geography",
-                icon: "🗺️",
+                icon: <Map className="w-6 h-6" />,
                 description: "Biblical locations and maps",
                 activeGames: "7 games",
                 averageTime: "18 min",
@@ -326,7 +326,7 @@ export default function GameAlong() {
               },
               {
                 title: "Parables",
-                icon: "🌱",
+                icon: <Leaf className="w-6 h-6" />,
                 description: "Games based on Jesus' parables",
                 activeGames: "9 games",
                 averageTime: "14 min",
@@ -335,7 +335,7 @@ export default function GameAlong() {
             ].map((category, index) => (
               <Card key={index} className="card-hover transition-all duration-300 hover:shadow-lg">
                 <CardContent className="p-6 text-center">
-                  <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4 text-white text-2xl`}>
+                  <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4 text-white`}>
                     {category.icon}
                   </div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
@@ -372,22 +372,22 @@ export default function GameAlong() {
                 title: "Bible Trivia Champions",
                 period: "This Month",
                 leaderboard: [
-                  { rank: 1, name: "Sarah Johnson", score: "2,450 points", badge: "🥇" },
-                  { rank: 2, name: "Michael Chen", score: "2,340 points", badge: "🥈" },
-                  { rank: 3, name: "Emily Davis", score: "2,180 points", badge: "🥉" },
-                  { rank: 4, name: "David Wilson", score: "2,050 points", badge: "⭐" },
-                  { rank: 5, name: "Maria Santos", score: "1,990 points", badge: "⭐" }
+                  { rank: 1, name: "Sarah Johnson", score: "2,450 points", badge: "Gold" },
+                  { rank: 2, name: "Michael Chen", score: "2,340 points", badge: "Silver" },
+                  { rank: 3, name: "Emily Davis", score: "2,180 points", badge: "Bronze" },
+                  { rank: 4, name: "David Wilson", score: "2,050 points", badge: "Top 5" },
+                  { rank: 5, name: "Maria Santos", score: "1,990 points", badge: "Top 5" }
                 ]
               },
               {
                 title: "Scripture Memory Masters",
                 period: "This Month",
                 leaderboard: [
-                  { rank: 1, name: "Pastor Robert", score: "156 verses", badge: "🥇" },
-                  { rank: 2, name: "Jennifer Lee", score: "142 verses", badge: "🥈" },
-                  { rank: 3, name: "Timothy Brown", score: "139 verses", badge: "🥉" },
-                  { rank: 4, name: "Grace Kim", score: "128 verses", badge: "⭐" },
-                  { rank: 5, name: "John Martinez", score: "125 verses", badge: "⭐" }
+                  { rank: 1, name: "Pastor Robert", score: "156 verses", badge: "Gold" },
+                  { rank: 2, name: "Jennifer Lee", score: "142 verses", badge: "Silver" },
+                  { rank: 3, name: "Timothy Brown", score: "139 verses", badge: "Bronze" },
+                  { rank: 4, name: "Grace Kim", score: "128 verses", badge: "Top 5" },
+                  { rank: 5, name: "John Martinez", score: "125 verses", badge: "Top 5" }
                 ]
               }
             ].map((board, index) => (
@@ -404,7 +404,9 @@ export default function GameAlong() {
                     {board.leaderboard.map((player, playerIndex) => (
                       <div key={playerIndex} className="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
                         <div className="flex items-center space-x-3">
-                          <span className="text-lg">{player.badge}</span>
+                          <span className="text-xs px-2 py-1 rounded-full bg-[#a47551]/15 text-[#a47551] font-semibold">
+                            {player.badge}
+                          </span>
                           <div>
                             <p className="font-semibold text-gray-900 dark:text-white text-sm">
                               {player.name}

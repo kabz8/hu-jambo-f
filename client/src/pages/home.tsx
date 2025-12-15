@@ -28,10 +28,10 @@ export default function Home() {
 
   // Mock data for demonstration - in real app this would come from API
   const recentActivity = [
-    { type: "prayer", title: "Prayed for healing", time: "2 hours ago", icon: "🙏" },
-    { type: "testimony", title: "Shared testimony", time: "1 day ago", icon: "💝" },
-    { type: "reading", title: "Read Psalm 23", time: "2 days ago", icon: "📖" },
-    { type: "worship", title: "Listened to hymns", time: "3 days ago", icon: "🎵" }
+    { type: "prayer", title: "Prayed for healing", time: "2 hours ago", icon: <Heart className="w-5 h-5" /> },
+    { type: "testimony", title: "Shared testimony", time: "1 day ago", icon: <Star className="w-5 h-5" /> },
+    { type: "reading", title: "Read Psalm 23", time: "2 days ago", icon: <Book className="w-5 h-5" /> },
+    { type: "worship", title: "Listened to hymns", time: "3 days ago", icon: <Music className="w-5 h-5" /> }
   ];
 
   const upcomingEvents = [

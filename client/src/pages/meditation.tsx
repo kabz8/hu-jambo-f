@@ -78,49 +78,51 @@ export default function Meditation() {
               {
                 title: "God's Love",
                 description: "Meditate on the infinite love of our Heavenly Father",
-                icon: "💕",
+                icon: <Heart className="w-6 h-6" />,
                 verses: "12 verses",
                 duration: "5-10 minutes"
               },
               {
                 title: "Peace & Rest",
                 description: "Find calm in God's presence and promises",
-                icon: "🕊️",
+                icon: <Moon className="w-6 h-6" />,
                 verses: "15 verses",
                 duration: "10-15 minutes"
               },
               {
                 title: "Gratitude",
                 description: "Reflect on God's blessings and goodness",
-                icon: "🙏",
+                icon: <Sun className="w-6 h-6" />,
                 verses: "10 verses",
                 duration: "5-10 minutes"
               },
               {
                 title: "Strength & Courage",
                 description: "Draw strength from God's mighty power",
-                icon: "💪",
+                icon: <Mountain className="w-6 h-6" />,
                 verses: "18 verses",
                 duration: "8-12 minutes"
               },
               {
                 title: "Forgiveness",
                 description: "Experience God's grace and mercy",
-                icon: "✨",
+                icon: <Leaf className="w-6 h-6" />,
                 verses: "14 verses",
                 duration: "10-15 minutes"
               },
               {
                 title: "Hope & Future",
                 description: "Trust in God's plans and promises",
-                icon: "🌟",
+                icon: <Sun className="w-6 h-6" />,
                 verses: "16 verses",
                 duration: "8-12 minutes"
               }
             ].map((topic, index) => (
               <Card key={index} className="card-hover transition-all duration-300 hover:shadow-lg">
                 <CardContent className="p-6 text-center">
-                  <div className="text-4xl mb-4">{topic.icon}</div>
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#a47551]/10 text-[#a47551] mb-4">
+                    {topic.icon}
+                  </div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {topic.title}
                   </h3>

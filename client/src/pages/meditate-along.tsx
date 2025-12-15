@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Leaf, Clock, Users, Play, Pause, Heart } from "lucide-react";
+import { Leaf, Clock, Users, Play, Pause, Heart, Sparkles, Star, Wind, BookOpen, HandHeart } from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -203,7 +203,7 @@ export default function MeditateAlong() {
               {
                 title: "Peace & Calm",
                 description: "Find tranquility in God's presence during stressful times",
-                icon: "🕊️",
+                icon: <Leaf className="w-6 h-6" />,
                 meditations: "24 sessions",
                 duration: "5-20 minutes",
                 participants: "456 people"
@@ -211,7 +211,7 @@ export default function MeditateAlong() {
               {
                 title: "Gratitude & Thanksgiving",
                 description: "Cultivate a heart of gratitude for God's blessings",
-                icon: "🙏",
+                icon: <Heart className="w-6 h-6" />,
                 meditations: "18 sessions",
                 duration: "8-15 minutes",
                 participants: "329 people"
@@ -219,7 +219,7 @@ export default function MeditateAlong() {
               {
                 title: "Healing & Restoration",
                 description: "Meditations for physical, emotional, and spiritual healing",
-                icon: "💚",
+                icon: <HandHeart className="w-6 h-6" />,
                 meditations: "21 sessions",
                 duration: "10-25 minutes",
                 participants: "278 people"
@@ -227,7 +227,7 @@ export default function MeditateAlong() {
               {
                 title: "Trust & Faith",
                 description: "Strengthen your faith and trust in God's plan",
-                icon: "⭐",
+                icon: <Star className="w-6 h-6" />,
                 meditations: "19 sessions",
                 duration: "6-18 minutes",
                 participants: "234 people"
@@ -235,7 +235,7 @@ export default function MeditateAlong() {
               {
                 title: "Forgiveness & Grace",
                 description: "Experience God's forgiveness and extend it to others",
-                icon: "✨",
+                icon: <Sparkles className="w-6 h-6" />,
                 meditations: "16 sessions",
                 duration: "12-20 minutes",
                 participants: "189 people"
@@ -243,7 +243,7 @@ export default function MeditateAlong() {
               {
                 title: "Love & Compassion",
                 description: "Meditate on God's love and grow in compassion",
-                icon: "❤️",
+                icon: <Heart className="w-6 h-6" />,
                 meditations: "22 sessions",
                 duration: "5-15 minutes",
                 participants: "345 people"
@@ -252,7 +252,9 @@ export default function MeditateAlong() {
               <Card key={index} className="card-hover transition-all duration-300 hover:shadow-lg">
                 <CardContent className="p-6">
                   <div className="text-center mb-4">
-                    <div className="text-4xl mb-3">{category.icon}</div>
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#a47551]/10 text-[#a47551] mb-3">
+                      {category.icon}
+                    </div>
                     <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                       {category.title}
                     </h3>
@@ -464,25 +466,27 @@ export default function MeditateAlong() {
               {
                 title: "Breathing Techniques",
                 description: "Learn different breathing methods for deeper meditation",
-                icon: "🌬️",
+                icon: <Wind className="w-6 h-6" />,
                 resources: "8 guides"
               },
               {
                 title: "Scripture Meditation",
                 description: "How to meditate on God's Word effectively",
-                icon: "📖",
+                icon: <BookOpen className="w-6 h-6" />,
                 resources: "12 teachings"
               },
               {
                 title: "Contemplative Prayer",
                 description: "Deepen your prayer life through contemplative practices",
-                icon: "🙏",
+                icon: <HandHeart className="w-6 h-6" />,
                 resources: "6 methods"
               }
             ].map((resource, index) => (
               <Card key={index} className="card-hover transition-all duration-300 hover:shadow-lg text-center">
                 <CardContent className="p-6">
-                  <div className="text-4xl mb-4">{resource.icon}</div>
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-[#a47551]/10 text-[#a47551] mb-4">
+                    {resource.icon}
+                  </div>
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
                     {resource.title}
                   </h3>

@@ -2,7 +2,22 @@ import { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { Heart, Users, Clock, BookOpen, Flame, Shield } from "lucide-react";
+import {
+  Heart,
+  Users,
+  Clock,
+  BookOpen,
+  Flame,
+  Shield,
+  HeartPulse,
+  HeartHandshake,
+  Coins,
+  Sparkles,
+  Compass,
+  ShieldCheck,
+  Megaphone,
+  HandHeart,
+} from "lucide-react";
 import { useLanguage } from "@/components/LanguageProvider";
 import PrayerForm from "@/components/PrayerForm";
 import Header from "@/components/Header";
@@ -198,49 +213,49 @@ export default function PrayAlong() {
             {[
               {
                 title: "Health & Healing",
-                icon: "🙏",
+                icon: <HeartPulse className="w-6 h-6" />,
                 count: "34 requests",
                 color: "bg-green-500"
               },
               {
                 title: "Family & Relationships",
-                icon: "👨‍👩‍👧‍👦",
+                icon: <HeartHandshake className="w-6 h-6" />,
                 count: "28 requests",
                 color: "bg-blue-500"
               },
               {
                 title: "Financial Provision",
-                icon: "💰",
+                icon: <Coins className="w-6 h-6" />,
                 count: "19 requests",
                 color: "bg-yellow-500"
               },
               {
                 title: "Salvation",
-                icon: "✨",
+                icon: <Sparkles className="w-6 h-6" />,
                 count: "42 requests",
                 color: "bg-purple-500"
               },
               {
                 title: "Guidance & Wisdom",
-                icon: "🧭",
+                icon: <Compass className="w-6 h-6" />,
                 count: "25 requests",
                 color: "bg-orange-500"
               },
               {
                 title: "Protection & Safety",
-                icon: "🛡️",
+                icon: <ShieldCheck className="w-6 h-6" />,
                 count: "16 requests",
                 color: "bg-red-500"
               },
               {
                 title: "Ministry & Calling",
-                icon: "📢",
+                icon: <Megaphone className="w-6 h-6" />,
                 count: "12 requests",
                 color: "bg-teal-500"
               },
               {
                 title: "General Prayers",
-                icon: "🤲",
+                icon: <HandHeart className="w-6 h-6" />,
                 count: "31 requests",
                 color: "bg-pink-500"
               }

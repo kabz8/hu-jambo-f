@@ -42,22 +42,22 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/worship" className="text-white/70 hover:text-[#a47551] transition-colors">
-                  🎵 Worship
+                  Worship
                 </Link>
               </li>
               <li>
                 <Link href="/reading" className="text-white/70 hover:text-[#a47551] transition-colors">
-                  📖 Reading
+                  Reading
                 </Link>
               </li>
               <li>
                 <Link href="/meditation" className="text-white/70 hover:text-[#a47551] transition-colors">
-                  🧘 Meditation
+                  Meditation
                 </Link>
               </li>
               <li>
                 <Link href="/games" className="text-white/70 hover:text-[#a47551] transition-colors">
-                  🎮 Games
+                  Games
                 </Link>
               </li>
             </ul>
@@ -69,17 +69,17 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li>
                 <Link href="/testimonies" className="text-white/70 hover:text-[#a47551] transition-colors">
-                  💝 Testimonies
+                  Testimonies
                 </Link>
               </li>
               <li>
                 <Link href="/prayers" className="text-white/70 hover:text-[#a47551] transition-colors">
-                  🙏 Prayers
+                  Prayers
                 </Link>
               </li>
               <li>
                 <Link href="/donate" className="text-white/70 hover:text-[#a47551] transition-colors">
-                  💖 Donate
+                  Donate
                 </Link>
               </li>
             </ul>
@@ -114,7 +114,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center">
                 <Phone className="h-4 w-4 mr-3 text-white/60" />
-                <span className="text-white/80">+1 (555) 123-4567</span>
+                <span className="text-white/80">+1 (651) 348-9258</span>
               </div>
             </div>
             
