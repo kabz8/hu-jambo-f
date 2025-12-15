@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 380" role="img" aria-label="Biblical Financial Courses logo">
+  <defs>
+    <style>
+      .cross { fill: #a47551; }
+      .dove { fill: #ffffff; stroke: #0b0b0b; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .mark-stroke { fill: none; stroke: #0b0b0b; stroke-width: 5; stroke-linecap: round; }
+      .text-brand { fill: #a47551; font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; font-weight: 600; }
+      .text-sub { fill: #ffffff; font-family: 'Montserrat', 'Segoe UI', Arial, sans-serif; letter-spacing: 12px; font-weight: 600; }
+    </style>
+  </defs>
+
+  <!-- Cross -->
+  <rect class="cross" x="72" y="46" width="120" height="290" rx="12" />
+  <rect class="cross" x="24" y="150" width="216" height="70" rx="12" />
+
+  <!-- Dove + flowing form -->
+  <path class="dove" d="M220 96c18 28 25 61 19 90l55 18c-25 6-50 6-71 0 11 30 4 68-20 99-32 42-83 69-118 77 35-28 56-76 44-120-12-47-50-86-50-86l52 14 27-64 31 36z" />
+  <path class="mark-stroke" d="M240 208c30 10 62 10 96 0-18 34-51 60-96 70" />
+  <circle class="dove" cx="205" cy="80" r="18" />
+  <path class="mark-stroke" d="M188 74c-18-6-33-6-48 0 12 16 30 26 49 30" />
+
+  <!-- Wordmark -->
+  <text class="text-brand" x="280" y="185" font-size="64">Biblical Financial</text>
+  <text class="text-sub" x="280" y="250" font-size="46">COURSES</text>
+</svg>
+

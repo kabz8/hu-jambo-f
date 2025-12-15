@@ -5,12 +5,25 @@ export default {
   content: ["./client/index.html", "./client/src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
       colors: {
+        blue: {
+          50: "#f7f0e7",
+          100: "#eedfd3",
+          200: "#e0c7b2",
+          300: "#d2af91",
+          400: "#c29775",
+          500: "#b1805c",
+          600: "#a47551",
+          700: "#8a5f42",
+          800: "#704b34",
+          900: "#5a3928",
+          950: "#3b2419",
+        },
+        brand: {
+          DEFAULT: "#a47551",
+          light: "#c1916a",
+          dark: "#8a5f42",
+        },
         background: "var(--background)",
         foreground: "var(--foreground)",
         card: {
@@ -61,6 +74,11 @@ export default {
           border: "var(--sidebar-border)",
           ring: "var(--sidebar-ring)",
         },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
         "accordion-down": {
