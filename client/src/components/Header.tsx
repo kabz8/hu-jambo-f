@@ -87,6 +87,9 @@ export default function Header() {
                 </Link>
               </div>
             </div>
+            <Link href="/courses" className="text-white/80 hover:text-[#a47551] transition-colors">
+              Courses
+            </Link>
             <Link href="/donate" className="text-white/80 hover:text-[#a47551] transition-colors">
               Donate
             </Link>
@@ -156,6 +159,9 @@ export default function Header() {
                     </div>
                   </div>
                   
+                  <Link href="/courses" className="text-white/80 hover:text-white transition-colors py-2 font-medium">
+                    Courses
+                  </Link>
                   <Link href="/donate" className="text-white/80 hover:text-white transition-colors py-2 font-medium">
                     Donate
                   </Link>

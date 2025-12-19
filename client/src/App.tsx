@@ -14,6 +14,7 @@ import Worship from "@/pages/worship";
 import Reading from "@/pages/reading";
 import Meditation from "@/pages/meditation";
 import Games from "@/pages/games";
+import Courses from "@/pages/courses";
 import TestimonyAlong from "@/pages/testimony-along";
 import PrayAlong from "@/pages/pray-along";
 import SingAlong from "@/pages/sing-along";
@@ -32,6 +33,7 @@ function Router() {
       <Route path="/reading" component={Reading} />
       <Route path="/meditation" component={Meditation} />
       <Route path="/games" component={Games} />
+      <Route path="/courses" component={Courses} />
       <Route path="/testimony-along" component={TestimonyAlong} />
       <Route path="/pray-along" component={PrayAlong} />
       <Route path="/sing-along" component={SingAlong} />
