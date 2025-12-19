@@ -84,18 +84,12 @@ export default function Landing() {
             </div>
 
             <div className="relative">
-              <div className="aspect-square max-w-md mx-auto bg-gradient-to-br from-[#1a120c] via-[#a47551] to-[#1a120c] rounded-3xl p-2 shadow-2xl border border-white/15">
+              <div className="max-w-xl mx-auto lg:mx-0 rounded-[32px] overflow-hidden border border-white/20 shadow-[0_35px_65px_rgba(0,0,0,0.55)] bg-black/40">
                 <img
-                  src={heroImage}
-                  alt="Person on spiritual journey path with mountains in background"
-                  className="w-full h-full object-cover rounded-3xl"
+                  src="/banner.png"
+                  alt="Biblical Financial Courses banner"
+                  className="w-full h-full object-cover"
                 />
-              </div>
-              <div className="absolute -top-4 -left-6 sm:-top-6 sm:-left-8 w-20 h-20 sm:w-24 sm:h-24 bg-white/10 border border-white/20 rounded-full flex items-center justify-center shadow-lg">
-                <Crown className="w-10 h-10 text-white" />
-              </div>
-              <div className="absolute -bottom-4 -right-6 sm:-bottom-6 sm:-right-8 w-16 h-16 sm:w-20 sm:h-20 bg-white/10 border border-white/20 rounded-full flex items-center justify-center shadow-lg">
-                <Heart className="w-8 h-8 text-white" />
               </div>
             </div>
             </div>

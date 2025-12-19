@@ -19,7 +19,7 @@ export default function Header() {
           <div className="flex items-center">
             <div className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center">
-                <BrandLogo withText className="mr-2 sm:mr-3" />
+                <BrandLogo withText size="lg" className="mr-2 sm:mr-3" />
               </Link>
             </div>
           </div>
@@ -103,7 +103,7 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent side="right" className="w-64 bg-[#0f0b09] text-white border-[#2d1f14]">
                 <div className="flex items-center mb-8 mt-4">
-                  <BrandLogo withText className="mr-3" />
+                  <BrandLogo withText size="lg" className="mr-3" />
                 </div>
                 <nav className="flex flex-col space-y-4">
                   <div className="border-b border-[#2d1f14] pb-4">
